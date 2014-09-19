@@ -6,7 +6,13 @@ var urls = {
         diagnosticCollection: root + '/odata/Diagnostic',
         lineModelTestCollection: root + '/odata/LineModelTestCollections',
         contact: root + "/contact",
-        contactCollection: root + "/contacts"
+        contactCollection: root + "/contacts"  
+    },
+    aviation: {
+    	site: root + "/site",
+    	sites: root + "/sites"
+        secteur: root + "/secteur"
+        secteurs: root + "/secteurs"
     },
     rightsManagement: root + "/api/permission"
 };

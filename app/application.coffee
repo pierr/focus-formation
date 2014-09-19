@@ -8,6 +8,7 @@ class Application extends Backbone.Marionette.Application
     @on "initialize:after", (options) =>
       # Process the site description and display it.
       Fmk.Helpers.siteDescriptionBuilder.processSiteDescription({isForceProcess: true})
+      console.log "rrr"
       # Initialize the site map.
       @layout.processSite({isForceDisplay: true})
       Backbone.history.start

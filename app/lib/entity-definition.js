@@ -61,5 +61,31 @@ module.exports = {
                 "domain": "DO_LISTE_MULTI"
             }
         }
+    },
+    "aviation": {
+        "site": {
+            "nom": {
+                domain: "DO_TEXTE_50",
+                required: true
+            },
+            "nbPersonnel": {
+                domain: "DO_ENTIER"
+            },
+            "dateOuverture": {
+                domain: "DO_DATE"
+            }
+        },
+        "secteur": {
+            "name": {
+                domain: "DO_TEXTE_50",
+                required: true
+            }
+        },
+        "ville": {
+            "name": {
+                domain: "DO_TEXTE_50",
+                required: true
+            },
+        }
     }
 };

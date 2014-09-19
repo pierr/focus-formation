@@ -1,0 +1,19 @@
+{{!-- use in app/views/aviation/secteurListView--}}
+{{#panel "aviation.secteur.title" }}
+  {{open_result_table }}
+    <thead id="tableHeader">
+      <tr>
+        <!-- TODO: Add columns to display properties -->
+      </tr>
+    </thead>
+ 	 {{#if isEdit}}
+	  <tfoot>
+	    <tr>
+	      <td>{{button "Add" class="btnAdd"}}</td>
+	    </tr>
+	  </tfoot>
+	  {{/if}}
+    <tbody>
+    </tbody>
+  {{close_result_table}}
+{{/panel}} 

@@ -1,0 +1,18 @@
+{{!--Template use in app/views/aviation/siteSearchView.js --}}
+{{#criteria "Rechercher un site" }}
+    {{#form}}
+        <div class="row">
+          <div class="col-md-6">{{input_for "nom"}}</div>
+          <div class="col-md-6">{{input_for "nbPersonnel"}}</div>
+          <div class="col-md-6">{{input_for "dateOuverture"}}</div>
+          {{!-- {{introspect "" isDisplay=false}} --}}
+        </div>
+        <br />
+        {{#btn_toolbar}}
+          {{button "button.reset" class="btnReset"}}
+          {{button "button.search" icon="search" class="btn-primary pull-right" type="submit"}}
+        {{/btn_toolbar}}
+    {{/form}}
+{{/criteria}}
+
+<div id="results"></div>

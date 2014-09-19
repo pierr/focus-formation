@@ -16,6 +16,15 @@ var site = function(p) {
                 url: '#administration/contact/1',
                 roles: ['DEFAULT_ROLE']
             }]
+        }, {
+            name: "aviation",
+            url: '#aviation/sites',
+            roles: ['DEFAULT_ROLE'],
+            pages: [{
+                name: "site",
+                url: '#aviation/site/' + p.siteId.value,
+                roles: ['DEFAULT_ROLE']
+            }]
         }],
         pages: [
             //Test page 
@@ -34,9 +43,9 @@ var siteDescription = {};
 
 //Default name and value parameters.
 var defaultParams = {
-    param1: {
-        name: "param1",
-        value: ":param1"
+    siteId: {
+        name: "siteId",
+        value: ":siteId"
     }
 };
 

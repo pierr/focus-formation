@@ -1,0 +1,17 @@
+{{!--Template use in app/views/aviation/siteResultView.js --}}
+<table class="table">
+  <thead id="tableHeader">
+    <tr>
+      <th style="width:20%;">{{sortColumn "nom" translationKey="#LABEL_SEARCH_COL1"}}</th>
+      <th style="width:20%;">{{sortColumn "nbPersonnel" translationKey="#LABEL_SEARCH_COL1"}}</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each collection}}
+    <tr>
+      <td data-selection="{{id}}">{{display_for "nom" isNoLabel=true}}</td>
+      <td>{{display_for "nbPersonnel" isNoLabel=true}}</td>
+    </tr>
+    {{/each}}
+  </tbody>
+</table>

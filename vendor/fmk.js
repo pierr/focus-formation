@@ -1,5 +1,5 @@
-/* name: spa-fmk , version: 0.1.2 description: Simple framework for backbone applications.*/ 
- (function initialization(container) {var fmk = container.Fmk || {};fmk.name = 'spa-fmk';fmk.version = '0.1.2';container.Fmk = fmk;})(typeof module === 'undefined' && typeof window !== 'undefined' ? window : exports);
+/* name: spa-fmk , version: 0.1.3 description: Simple framework for backbone applications.*/ 
+ (function initialization(container) {var fmk = container.Fmk || {};fmk.name = 'spa-fmk';fmk.version = '0.1.3';container.Fmk = fmk;})(typeof module === 'undefined' && typeof window !== 'undefined' ? window : exports);
 /*global window, _*/
 (function initialization(container) {
   var fmk = container.Fmk || {};
@@ -119,11 +119,11 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
 function program1(depth0,data) {
   
   var buffer = "", stack1, helper;
-  buffer += "\n    <strong>";
+  buffer += "\r\n    <strong>";
   if (helper = helpers.message) { stack1 = helper.call(depth0, {hash:{},data:data}); }
   else { helper = (depth0 && depth0.message); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
   buffer += escapeExpression(stack1)
-    + "</strong><br />\n  ";
+    + "</strong><br />\r\n  ";
   return buffer;
   }
 
@@ -131,10 +131,10 @@ function program1(depth0,data) {
   if (helper = helpers.cssMessageType) { stack1 = helper.call(depth0, {hash:{},data:data}); }
   else { helper = (depth0 && depth0.cssMessageType); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
   buffer += escapeExpression(stack1)
-    + "'>\n  <button type='button' class='close' data-dismiss='alert'>&times;</button>\n  ";
+    + "'>\r\n  <button type='button' class='close' data-dismiss='alert'>&times;</button>\r\n  ";
   stack1 = helpers.each.call(depth0, (depth0 && depth0.messages), {hash:{},inverse:self.noop,fn:self.program(1, program1, data),data:data});
   if(stack1 || stack1 === 0) { buffer += stack1; }
-  buffer += "\n</div>";
+  buffer += "\r\n</div>";
   return buffer;
   });;
 this["Fmk"] = this["Fmk"] || {};
@@ -244,6 +244,185 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
 
 }).call(this);
 
+/*global _, window*/
+
+/**
+ * @module core/http_response_parser
+ * @description Global notifications mecanism around the whole application.
+ * @see file helpers/backbone_notifications.js
+ * @author pbesson
+ */
+
+/*
+  Jquery ajax error and success [documentation](http://api.jquery.com/jquery.ajax/).
+  error
+    Type: Function( jqXHR jqXHR, String textStatus, String errorThrown )
+    A function to be called if the request fails. The function receives three arguments: The jqXHR (in jQuery 1.4.x, XMLHttpRequest) object, a string describing the type of error that occurred and an optional exception object, if one occurred. Possible values for the second argument (besides null) are "timeout", "error", "abort", and "parsererror". When an HTTP error occurs, errorThrown receives the textual portion of the HTTP status, such as "Not Found" or "Internal Server Error." As of jQuery 1.5, the error setting can accept an array of functions. Each function will be called in turn. Note: This handler is not called for cross-domain script and cross-domain JSONP requests. This is an Ajax Event.
+  success: 
+    Type: Function( PlainObject data, String textStatus, jqXHR jqXHR )
+    A function to be called if the request succeeds. The function gets passed three arguments: The data returned from the server, formatted according to the dataType parameter; a string describing the status; and the jqXHR (in jQuery 1.4.x, XMLHttpRequest) object. As of jQuery 1.5, the success setting can accept an array of functions. Each function will be called in turn. This is an Ajax Event.
+ */
+
+
+(function(NS) {
+  "use strict";
+  NS = NS || {};
+
+  //Dependencies.
+  //Dependency gestion depending on the fact that we are in the browser or in node.
+  var isInBrowser = typeof module === 'undefined' && typeof window !== 'undefined';
+  var ArgumentNullException = isInBrowser ? NS.Helpers.Exceptions.ArgumentNullException : require("./custom_exception").ArgumentNullException;
+  
+  /**
+   * Default configuration.
+   * @type {Object}
+   */
+  var config = {
+    totalCountKey: "odata.count",
+    valuesKey: "values"
+  };
+
+  /**
+   * Configure the response parser.
+   * @param  {object} extendConf - the property you want to configure in the configuration.
+   * @return {[type]}            [description]
+   */
+  var configure = function configureHttpResponseParser(extendConf) {
+    if (!_.isObject(extendConf)) {
+      return;
+    }
+    _.extend(config, extendConf);
+  };
+
+  /**
+   * All the headers.
+   * @type {Object}
+   */
+  var HEADERS_KEYS = {
+    CONTENT_TYPE: "Content-Type",
+    TOTAL_COUNT: "X-Total-Count"
+  };
+  /**
+   * All the content types.
+   * @type {Object}
+   */
+  var CONTENT_TYPES = {
+    LIST: "application/json+list",
+    LIST_META: "application/json+list+meta",
+    ENTITY_DESC: "applicatin/json+",
+    ENTITY: "application/json"
+  };
+
+  /**
+   * Get the object name from the content type.
+   * @param  {string} contentType - The content type.
+   * @return {string} The name of the object.
+   */
+  var getObjectName = function getObjectNameFromContentType(contentType) {
+    var splitContent = contentType.split('+');
+    if (splitContent !== undefined && splitContent.length > 1) {
+      return splitContent[1].split(';')[0];
+
+    }
+    return undefined;
+  };
+  /**
+   * Parse an entity http response.
+   * @param  {jqXHR} response   - jQuery XmlHttpRequest.
+   * @param {object} contentType -  Object name in the contentType.
+   * @return {object}           - The parse response.
+   */
+  var entityParser = function entityParser(response, contentType) {
+    var entity = response.responseJSON;
+    //Set an object name if it is given as argument.
+    if (contentType) {
+      entity._objectName = getObjectName(contentType);
+    }
+    return entity;
+  };
+
+  /**
+   * Collection response parser.
+   * {jqXHR} response - jQuery XmlHttpRequest.
+   * @return {object}         - The parse response.
+   */
+  var collectionParser = function collectionParser(response, isMetaInHeader) {
+
+    var totalCount, values;
+    var jsonResponse = response.responseJSON;
+
+    if (isMetaInHeader) {
+      totalCount = +(response.getResponseHeader(HEADERS_KEYS.TOTAL_COUNT));
+      values = jsonResponse;
+      if (!_.isArray(values)) {
+        throw new ArgumentNullException("response.jsonResponse."+config.valuesKey+" should be an array.", response);
+      }
+    } else {
+     
+      totalCount = jsonResponse[config.totalCountKey] || jsonResponse.length;
+      values = jsonResponse[config.valuesKey];
+       if (!_.isArray(values)) {
+        throw new ArgumentNullException("response.jsonResponse should be an array.", response);
+      }
+    }
+
+    return {
+      totalCount: totalCount,
+      values: values
+    };
+
+  };
+
+  /**
+   * Polyfill for the string contains method.
+   * @param  {string} string  - The string to test.
+   * @param  {string} pattern - The pattern to identify.
+   * @return {boolean}         true or false.
+   */
+  var contains = function stringContains(string, pattern) {
+    if (!_.isString(string)) {
+      return false;
+    }
+    return string.indexOf(pattern) !== -1;
+  };
+
+  /**
+   * Parse HttpResponse.
+   * @param  {jqXHR} response - jQuery XmlHttpRequest.
+   * @return {object}         - The parse response.
+   */
+  var parseResponse = function parseResponse(response) {
+    var contentType = response.getResponseHeader(HEADERS_KEYS.CONTENT_TYPE);
+    if (contains(contentType, CONTENT_TYPES.LIST_META)) {
+      return collectionParser(response, false);
+    } else if (contains(contentType, CONTENT_TYPES.LIST)) {
+      return collectionParser(response, true);
+    } else if (contains(contentType, CONTENT_TYPES.ENTITY_DESC)) {
+      return entityParser(response, contentType);
+    } else if (contains(contentType, CONTENT_TYPES.ENTITY)) {
+      return entityParser(response);
+    } else {
+      return response.responseJSON;
+    }
+  };
+  /**
+   * Container for the export.
+   * @type {Object}
+   */
+  var httpResponseParser = {
+    entity: entityParser,
+    collection: collectionParser,
+    parse: parseResponse,
+    configure: configure
+  };
+  // Differenciating export for node or browser.
+  if (isInBrowser) {
+    NS.Core = NS.Core || {};
+    NS.Core.httpResponseParser = httpResponseParser;
+  } else {
+    module.exports = httpResponseParser;
+  }
+})(typeof module === 'undefined' && typeof window !== 'undefined' ? window.Fmk : module.exports);
 //Session helper. Min browser: IE8, FF 3.5, Safari 4, Chrome 4, Opera 10.5. See [CanIUSE](http://caniuse.com/#feat=namevalue-storage)
 /* global window, Promise, Backbone, i18n*/
 (function(NS) {
@@ -2318,6 +2497,7 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
  * @module helpers/backbone_notifications
  * @description Global notifications mecanism around the whole application.
  * @see file helpers/backbone_notifications.js
+ * @author  pbesson
  */
 
 (function(NS) {
@@ -3611,6 +3791,7 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
 	NS = NS || {};
 	var isInBrowser = typeof module === 'undefined' && typeof window !== 'undefined';
 	var odataHelper = isInBrowser ? NS.Helpers.odataHelper : require("./odata_helper");
+	var httpResponseParser = isInBrowser ? NS.Core.httpResponseParser : require('../core/http_response_parser');
 	var ArgumentNullException = isInBrowser ? NS.Helpers.Exceptions.ArgumentNullException : require("./custom_exception").ArgumentNullException;
 	var ArgumentInvalidException = isInBrowser ? NS.Helpers.Exceptions.ArgumentInvalidException : require("./custom_exception").ArgumentInvalidException;
 
@@ -3657,15 +3838,18 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
 			return this.fetch();
 		},
 		//Ovverride the save method on the model in order to Return a promise.
-		save: function saveModel() {
+		save: function saveModel(options) {
 			var model = this;
 			var method = this.isNew() ? 'create' : 'update';
 			return new Promise(
 				function(resolve, reject) {
-					Backbone.sync(method, model, {
-						success: resolve,
+					var opts = _.extend({
+						success: function(data, textStatus, jqXHR) {
+							resolve(httpResponseParser.parse(jqXHR));
+						},
 						error: reject
-					});
+					}, options);
+					Backbone.sync(method, model, opts);
 				}
 			);
 		},
@@ -3688,7 +3872,9 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
 			//console.log('promiseFetchModel', model);
 			return new Promise(function(resolve, reject) {
 				/*Don't use underscore but could have because bacckbone has a dependency on it.*/
-				options.success = resolve;
+				options.success = function(data, textStatus, jqXHR) {
+					resolve(httpResponseParser.parse(jqXHR));
+				};
 				options.error = reject;
 				Backbone.sync('read', model, options);
 			});
@@ -3733,9 +3919,8 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
 			var collection = this;
 			return new Promise(function(resolve, reject) {
 				/*Don't use underscore but could have because bacckbone has a dependency on it.*/
-				options.success = function(data, textStatus, request) {
-					console.info(request.getAllResponseHeaders());
-					resolve(data);
+				options.success = function(data, textStatus, jqXHR) {
+					resolve(httpResponseParser.parse(jqXHR));
 				};
 				options.error = reject;
 				Backbone.sync('read', collection, options);
@@ -3747,7 +3932,9 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
 			return new Promise(
 				function(resolve, reject) {
 					Backbone.sync(method, model, {
-						success: resolve,
+						success: function(data, textStatus, jqXHR) {
+							resolve(httpResponseParser.parse(jqXHR));
+						},
 						error: reject
 					});
 				}
@@ -3798,7 +3985,7 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
 	 * @return {PromiseModel}      - A backbone model promisified with the good url.
 	 */
 	var generateModel = function generateModel(url, json) {
-		if (json!== undefined && json !== null && !_.isObject(json)) {
+		if (json !== undefined && json !== null && !_.isObject(json)) {
 			throw new ArgumentInvalidException(json);
 		}
 		if (!_.isString(url)) {
@@ -4171,7 +4358,7 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   })(this));
 
   Handlebars.registerHelper("input_for", function(property, options) {
-    var cidAttr, col, container, containerAttribs, containerCss, dataType, decorator, disabled, domain, error, errorSize, errorValue, errors, html, icon, inputAttributes, inputSize, isAddOnInput, isDisplayRequired, isRequired, label, labelSize, labelSizeValue, metadata, minimalHtml, modelName, noGrid, opt, placeholder, propertyValue, readonly, symbol, translationKey, translationRoot;
+    var cidAttr, col, container, containerAttribs, containerCss, dataFields, dataType, decorator, disabled, domain, error, errorSize, errorValue, errors, html, icon, inputAttributes, inputSize, isAddOnInput, isDisplayRequired, isRequired, label, labelSize, labelSizeValue, metadata, minimalHtml, modelName, noGrid, opt, placeholder, propertyValue, readonly, symbol, translationKey, translationRoot;
     options = options || {};
     html = void 0;
     translationRoot = void 0;
@@ -4185,6 +4372,19 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
     domain = Fmk.Helpers.metadataBuilder.getDomains()[metadata.domain] || {};
     minimalHtml = opt.minimalHtml != null ? opt.minimalHtml : false;
     noGrid = opt.noGrid ? opt.noGrid : false;
+    dataFields = function(context) {
+      var fieldNames, subHTML;
+      subHTML = "";
+      if (opt.dataFields) {
+        fieldNames = opt.dataFields.split(',');
+        fieldNames.forEach(function(fieldName) {
+          if (context[fieldName]) {
+            return subHTML = subHTML + ("data-" + fieldName + "='" + context[fieldName] + "'");
+          }
+        });
+      }
+      return subHTML;
+    };
     isDisplayRequired = false;
     isRequired = (function(_this) {
       return function() {
@@ -4335,10 +4535,10 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
       };
     })(this);
     if (minimalHtml) {
-      html = " <input id='" + property + "' " + (decorator()) + " class=''";
+      html = " <input id='" + property + "' " + (dataFields(this)) + " " + (decorator()) + " class=''";
       html += "data-name='" + property + "' type='" + dataType + "' " + inputAttributes + " " + cidAttr + " " + placeholder + " " + (propertyValue()) + " " + readonly + " " + disabled + "/>";
     } else {
-      html = "<div class='form-group " + error + " " + col + "'> " + (label()) + " <div class='" + (inputSize()) + " " + containerCss + "' " + containerAttribs + "> <div class='" + (isAddOnInput ? 'input-group' : "") + "'> " + (icon()) + " <input id='" + property + "' " + (decorator()) + " class='";
+      html = "<div class='form-group " + error + " " + col + "'> " + (label()) + " <div class='" + (inputSize()) + " " + containerCss + "' " + containerAttribs + "> <div class='" + (isAddOnInput ? 'input-group' : "") + "'> " + (icon()) + " <input id='" + property + "' " + (decorator()) + " " + (dataFields(this)) + " class='";
       if (dataType !== "checkbox") {
         html += "form-control ";
       }
@@ -4939,6 +5139,175 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
     html = "<div class='currency'><div class='right'>#{value} #{currencySymbol}</div></div>"
     new Handlebars.SafeString(html)
    */
+
+
+  /*
+    Helper pour uniformiser l'utilisation des formulaires.
+    Exemple: {{#form}} {{input_for "firstName"}} {{/form}}
+   */
+
+  Handlebars.registerHelper('form', function(options) {
+    return "<form novalidate class='form-horizontal' role='form'>" + (options.fn(this)) + "</form>";
+  });
+
+
+  /*
+    Helper pour uniformiser l'utilisation des formulaires.
+    Exemple: {{#form}} {{input_for "firstName"}} {{/form}}
+   */
+
+  Handlebars.registerHelper('display', function(options) {
+    return "<form novalidate class='form-horizontal' role='form'>" + (options.fn(this)) + "</form>";
+  });
+
+
+  /*
+    Helper pour uniformiser l'utilisation des formulaires.
+    Exemple: {{#button_toolbar}} {{{button_cancel}} {{button_save}} {{/button_toolbar}}
+   */
+
+  Handlebars.registerHelper('btn_toolbar', function(options) {
+    return "<div class='btn-toolbar'><div class='btn-group'>" + (options.fn(this)) + "</div></div>";
+  });
+
+
+  /*
+    Helper pour uniformiser l'utilisation des panel.
+    Exemple: {{#panel}} {{{#form}} {{/form}} {{/panel}}
+    Exemple: {{#panel "titlekey"}} {{{#form}} {{/form}} {{/panel}}
+   */
+
+  Handlebars.registerHelper('panel', function(title, options) {
+    var cancelButton, editButton, html, opt, saveButton;
+    opt = (options || {}).hash || {};
+    if (_.isObject(title)) {
+      options = title;
+      title = void 0;
+    }
+    editButton = function() {
+      if (opt.edit) {
+        return Handlebars.helpers.button_edit.call(this, {
+          hash: {
+            icon: "pencil"
+          }
+        });
+      } else {
+        return "";
+      }
+    };
+    saveButton = function() {
+      if (opt.save) {
+        return Handlebars.helpers.button_save.call(this, void 0, {
+          hash: {
+            icon: "save"
+          }
+        });
+      } else {
+        return "";
+      }
+    };
+    cancelButton = function() {
+      if (opt.save) {
+        return Handlebars.helpers.button_cancel.call(this, {
+          hash: {
+            icon: "undo"
+          }
+        });
+      } else {
+        return "";
+      }
+    };
+    title = title == null ? "" : i18n.t(title);
+    html = "<div class='panel panel-default'> <div class='panel-heading'>" + title + " " + (editButton()) + " " + (saveButton()) + " " + (cancelButton()) + "</div> <div class='panel-body'>" + (options.fn(this)) + "</div> </div>";
+    return html;
+  });
+
+
+  /*
+    Helper pour uniformiser l'utilisation des formulaires.
+    Exemple: {{#page "page.title" panelTitle="page.panel.title"}} {{input_for "firstName"}} {{/page}}
+   */
+
+  Handlebars.registerHelper('page', function(title, options) {
+    var html, opt;
+    options = options || {};
+    opt = options.hash || {};
+    if (!_.isString(title)) {
+      console.error("noTitleInYourTemplate");
+    }
+    html = "<h1>" + (i18n.t(title)) + "</h1> <div class='page-content'> " + (options.fn(this)) + " </div>";
+    return html;
+  });
+
+
+  /*
+    Helper pour uniformiser l'utilisation des formulaires.
+    Exemple: {{#criteria}}{{#form}} {{input_for "firstName"}} {{/form}}{{/criteria}}
+   */
+
+  Handlebars.registerHelper('criteria', function(title, options) {
+    var html;
+    options = options || {};
+    if (_.isObject(title)) {
+      options = title;
+      title = void 0;
+    }
+    title = title == null ? "" : i18n.t(title);
+    html = "<div class='criteria'> <h2>" + title + "</h2> " + (options.fn(this)) + " </div>";
+    return html;
+  });
+
+  Handlebars.registerHelper("result", function(options) {
+    var cssClass, elementTagName, html, isTable, listTagName, opt, paginate, resultLabel, striped, tableHeaderActions;
+    options = options || {};
+    opt = options.hash || {};
+    isTable = opt.isTable != null ? opt.isTable : true;
+    resultLabel = opt.resultLabel ? i18n.t(opt.resultLabel) : void 0;
+    listTagName = isTable ? "table" : "ul";
+    elementTagName = isTable ? "tr" : "li";
+    striped = opt.striped != null ? opt.stripped : true;
+    cssClass = isTable ? defaults.cssClass.table : defaults.cssClass.list;
+    if (opt.cssClass != null) {
+      cssClass = "" + cssClass + " opt.cssClass";
+    }
+    if (striped) {
+      cssClass = cssClass + "  table-striped";
+    }
+    tableHeaderActions = (function(_this) {
+      return function() {
+        var showHeaderActions;
+        showHeaderActions = opt.showHeaderActions != null ? opt.showHeaderActions : true;
+        if (showHeaderActions) {
+          return "" + (Handlebars.helpers.tableHeaderAction.call(_this, {
+            hash: {
+              resultLabel: '',
+              exportUrl: _this.exportUrl,
+              resultLabel: resultLabel
+            }
+          })) + " <hr />";
+        } else {
+          return "";
+        }
+      };
+    })(this);
+    paginate = (function(_this) {
+      return function() {
+        var isPaginate;
+        isPaginate = opt.isPaginate != null ? opt.isPaginate : true;
+        if (isPaginate) {
+          return Handlebars.helpers.paginate.call(_this, {
+            hash: {
+              showResultNumber: false
+            }
+          });
+        } else {
+          return "";
+        }
+      };
+    })(this);
+    html = " " + (tableHeaderActions()) + " <" + listTagName + " class='" + cssClass + "'> " + (options.fn(this)) + " </" + listTagName + "> " + (paginate()) + " <div id='lineSelectionContainer'></div>";
+    return new Handlebars.SafeString(html);
+  });
 
 }).call(this);
 
@@ -5971,225 +6340,6 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
     } else {
         module.exports = CompositeView;
     }
-})(typeof module === 'undefined' && typeof window !== 'undefined' ? window.Fmk : module.exports);
-/*global window, Backbone, $*/
-"use strict";
-(function(NS) {
-	//Filename: views/detail-consult-view.js
-	NS = NS || {};
-	var isInBrowser = typeof module === 'undefined' && typeof window !== 'undefined';
-	var NotImplementedException = isInBrowser ? NS.Helpers.Exceptions.NotImplementedException : require('../helpers/custom_exception').NotImplementedException;
-	var ErrorHelper = isInBrowser ? NS.Helpers.errorHelper : require('../helpers/error_helper');
-	var CoreView = isInBrowser ? NS.Views.CoreView : require('./core-view');
-	var DetailConsultView = CoreView.extend({
-		tagName: 'div',
-		className: 'consultView',
-		getModel: undefined,
-		deleteModel: undefined,
-
-		initialize: function initializeConsult() {
-			console.warn('######## THIS VIEW  is deprecated.#####');
-			console.warn('######## Use consult-edit view.#####');
-			CoreView.prototype.initialize.call(this);
-			//render view when the model is loaded
-			this.model.on('change', this.render, this);
-			if (this.model.has('id')) {
-				var view = this;
-				this.getModel(this.model.get('id'))
-					.then(function success(jsonModel) {
-						view.model.set(jsonModel);
-					}).then(null, function error(errorResponse) {
-						//todo: call the error_helper.
-						console.log('Detail consult view initialize : ' + errorResponse);
-					});
-			}
-		},
-
-		events: {
-			"click button#btnEdit": "edit",
-			"click button#btnDelete": "deleteItem",
-			"click .panel-heading": "toogleCollapse"
-		},
-
-		//JSON data to attach to the template.
-		getRenderData: function getRenderDataConsult() {
-			throw new NotImplementedException('getRenderData');
-		},
-
-		//genarate navigation url.
-		generateEditUrl: function generateEditUrl() {
-			return this.model.modelName + "/edit/" + this.model.get('id');
-		},
-
-		edit: function editVm(event) {
-			event.preventDefault();
-			Backbone.history.navigate(this.generateEditUrl(), true);
-		},
-
-		deleteItem: function deleteConsult(event) {
-			event.preventDefault();
-			var view = this;
-			//call suppression service
-			this.deleteModel()
-				.then(function success(successResponse) {
-					view.deleteSuccess(successResponse);
-				}, function error(errorResponse) {
-					view.deleteError(errorResponse);
-				});
-		},
-
-		//Generate delete navigation url.
-		generateDeleteUrl: function generateDeleteUrl() {
-			return "/";
-		},
-
-		// Actions after a delete success.
-		deleteSuccess: function deleteConsultSuccess(response) {
-			//remove the view from the DOM
-			this.remove();
-			//navigate to next page
-			Backbone.history.navigate(this.generateDeleteUrl(), true);
-		},
-
-		// Actions after a delete error. 
-		deleteError: function deleteConsultError(errorResponse) {
-			ErrorHelper.manageResponseErrors(errorResponse, {
-				isDisplay: true
-			});
-		},
-
-		render: function renderVirtualMachine() {
-			var jsonModel = this.getRenderData();
-			this.$el.html(this.template(jsonModel));
-			return this;
-		},
-		afterRender: function postRenderDetailView() {
-			CoreView.prototype.afterRender.call(this);
-			$('.collapse', this.$el).collapse('show');
-		}
-	});
-
-
-	// Differenciating export for node or browser.
-	if (isInBrowser) {
-		NS.Views = NS.Views || {};
-		NS.Views.DetailConsultView = DetailConsultView;
-	} else {
-		module.exports = DetailConsultView;
-	}
-})(typeof module === 'undefined' && typeof window !== 'undefined' ? window.Fmk : module.exports);
-/*global Backbone, $, i18n, window*/
-(function(NS) {
-	//Filename: views/detail-edit-view.js
-	NS = NS || {};
-	var isInBrowser = typeof module === 'undefined' && typeof window !== 'undefined';
-	var ErrorHelper = isInBrowser ? NS.Helpers.errorHelper : require('../helpers/error_helper');
-	var form_helper = isInBrowser ? NS.Helpers.formHelper : require('../helpers/form_helper');
-	var _url = isInBrowser ? NS.Helpers.urlHelper : require('../helpers/url_helper');
-	var ModelValidator = isInBrowser ? NS.Helpers.modelValidationPromise : require('../helpers/modelValidationPromise');
-	var NotImplementedException = isInBrowser ? NS.Helpers.Exceptions.NotImplementedException : require("../helpers/custom_exception").NotImplementedException;
-	var CoreView = isInBrowser ? NS.Views.CoreView : require('./core-view');
-
-	var DetailEditView = CoreView.extend({
-		tagName: 'div',
-		className: 'editView',
-		saveModel: undefined, //VmSvc.save
-		getModel: undefined, //VmSvc.get
-
-		initialize: function initializeEdit(options) {
-			console.warn('######## THIS VIEW  is deprecated.#####');
-			options = options || {};
-			CoreView.prototype.initialize.call(this, options);
-			this.model.on('change', this.render, this);
-			this.listenTo(this.model, 'validated:valid', this.modelValid);
-			this.listenTo(this.model, 'validated:invalid', this.modelInValid);
-			if (this.model.has('id')) {
-				var view = this;
-				this.getModel(this.model.get('id'))
-					.then(function success(jsonModel) {
-						view.model.set(jsonModel);
-					});
-			}
-		},
-
-		events: {
-			"click button[type='submit']": "save",
-			"click button#btnCancel": "cancelEdition"
-		},
-
-		//JSON data to attach to the template.
-		getRenderData: function getRenderDataEdit() {
-			throw new NotImplementedException('getRenderData');
-		},
-
-		//Get the json data to be save by the view.
-		getDataToSave: function getDataToSaveDetailEdit() {
-			return this.model.toJSON();
-		},
-		save: function saveEdit(event) {
-			event.preventDefault();
-			form_helper.formModelBinder({
-				inputs: $('input', this.$el)
-			}, this.model);
-
-			var currentView = this;
-			ModelValidator.validate(currentView.model)
-				.then(function() {
-					currentView.model.unsetErrors();
-					currentView.saveModel(currentView.getDataToSave())
-						.then(function success(jsonModel) {
-							currentView.saveSuccess(jsonModel);
-						}).then(null, function error(responseError) {
-							currentView.saveError(responseError);
-						});
-				}).then(null, function error(errors) {
-					currentView.model.setErrors(errors);
-				});
-		},
-
-		//Actions on save success.
-		saveSuccess: function saveSuccess(jsonModel) {
-			Backbone.Notification.addNotification({
-				type: 'success',
-				message: i18n.t('virtualMachine.save.' + (jsonModel.isCreate ? 'create' : 'update') + 'success')
-			});
-			var url = this.generateNavigationUrl();
-			Backbone.history.navigate(url, true);
-		},
-
-		//Actions on save error
-		saveError: function saveError(errors) {
-			ErrorHelper.manageResponseErrors(errors, {
-				model: this.model
-			});
-		},
-
-		generateNavigationUrl: function generateNavigationUrl() {
-			if (this.model.get('id') === null || this.model.get('id') === undefined) {
-				return "/";
-			}
-			return _url.generateUrl([this.model.modelName, this.model.get("id")], {});
-		},
-
-		cancelEdition: function cancelEdition() {
-			var url = this.generateNavigationUrl();
-			Backbone.Notification.clearNotifications();
-			Backbone.history.navigate(url, true);
-		},
-
-		render: function renderEdit() {
-			var jsonModel = this.getRenderData();
-			this.$el.html(this.template(jsonModel));
-			return this;
-		}
-	});
-
-	if (isInBrowser) {
-		NS.Views = NS.Views || {};
-		NS.Views.DetailEditView = DetailEditView;
-	} else {
-		module.exports = DetailEditView;
-	}
 })(typeof module === 'undefined' && typeof window !== 'undefined' ? window.Fmk : module.exports);
 /* global Backbone, window*/
 (function(NS) {
