@@ -5,8 +5,34 @@
     {{#display}}
     	{{introspect ""}}
     {{/display}}
+    <div class="accordion" id="accordion">
+	  <div class="accordion-group">
+	    <div class="accordion-heading">
+	      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+	        Collapsible Group Item #1
+	      </a>
+	    </div>
+	    <div id="collapseOne" class="accordion-body collapse in">
+	      <div class="accordion-inner">
+	        Anim pariatur cliche...
+	      </div>
+	    </div>
+	  </div>
+	  <div class="accordion-group">
+	    <div class="accordion-heading">
+	      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+	        Collapsible Group Item #2
+	      </a>
+	    </div>
+	    <div id="collapseTwo" class="accordion-body collapse">
+	      <div class="accordion-inner">
+	        Anim pariatur cliche...
+	      </div>
+	    </div>
+	  </div>
+	</div>
     {{#btn_toolbar}}
-      {{button_edit}}
+      {{button "Edit" class="btnEdit"}}
     {{/btn_toolbar}}
    {{/panel}}
  {{/page}}

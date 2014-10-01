@@ -50,9 +50,9 @@ var save = function saveSecteur(jsonSecteur){
 * @return {object} - Return a **Promise** of saving the data.
 * @url __TO_FILL__ //Example url of the server to call : localhost/api/name/id
 */
-var search = function searchSecteur(criteria, pagesInfo){
-  var url = URL.aviation.secteur;
-  return Promisify.collection(url).fetchData({criteria: criteria, pagesInfo: pagesInfo});
+var search = function searchSecteur(criteria, pagesInfos){
+  var url = URL.aviation.secteurs;
+  return Promisify.collection(url).fetchData({criteria: criteria, pagesInfos: pagesInfos});
 }
 
 // TODO: add needed service functions to module.exports.

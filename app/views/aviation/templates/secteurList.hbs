@@ -1,19 +1,22 @@
 {{!-- use in app/views/aviation/secteurListView--}}
 {{#panel "aviation.secteur.title" }}
-  {{open_result_table }}
+  <table class="table table-condensed table-bordered table-striped">
     <thead id="tableHeader">
       <tr>
         <!-- TODO: Add columns to display properties -->
+          <th style="width:20%;">{{sortColumn "id" translationKey="id"}}</th>
+          <th style="width:20%;">{{sortColumn "name" translationKey="name"}}</th>
+          <th style="width:20%;">{{sortColumn "value" translationKey="action"}}</th>
       </tr>
     </thead>
- 	 {{#if isEdit}}
-	  <tfoot>
-	    <tr>
-	      <td>{{button "Add" class="btnAdd"}}</td>
-	    </tr>
-	  </tfoot>
+ 	  {{#if isEdit}}
+  	  <tfoot>
+  	    <tr>
+  	      <td>{{button "Add" class="btnAdd"}}</td>
+  	    </tr>
+  	  </tfoot>
 	  {{/if}}
     <tbody>
     </tbody>
-  {{close_result_table}}
+  </table>
 {{/panel}} 

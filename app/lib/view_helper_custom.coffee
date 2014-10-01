@@ -674,7 +674,6 @@ Handlebars.registerHelper 'criteria', (title, options)->
       </div>
   "
   return html
-
 # Create the default _opening_ html for table result. Works as a tag.
 # Works with _close_result_table_ helper.
 Handlebars.registerHelper "result", (options)->

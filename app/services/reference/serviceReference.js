@@ -1,14 +1,10 @@
-﻿
-function getAutocompleteSampleList(text) {
-    var response = {
-        results: [
-            { id: 1, text: "Row 1" + text },
-            { id: 2, text: "Row 2" + text },
-            { id: 3, text: "Row 3" + text },
-            { id: 4, text: "Row 4" + text }]
-    };
-    return Fmk.Helpers.utilHelper.loadLocalData(response);
+﻿var URL = require('../../models/URL');
+var Promisify = Fmk.Helpers.promisifyHelper;
+
+function loadSecteursList(text) {
+	var url = URL.aviation.secteurs;
+	return Promisify.collection(url).fetch();
 }
 module.exports = {
-    getAutocompleteSampleList: getAutocompleteSampleList
+    loadSecteursList: loadSecteursList
 };

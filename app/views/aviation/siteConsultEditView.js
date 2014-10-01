@@ -25,7 +25,7 @@ module.exports = Fmk.Views.ConsultEditView.extend({
     getModelSvc: Service.get, // TODO : Define the get method on service
     saveModelSvc: Service.save, // TODO : Define the save method on service
 	//deleteModelSvc: serviceSite.deleteSite,// TODO : Define the delete service if needed
-    referenceNames : [],
+    referenceNames : ['secteurs'],
     customOptions: {
 		//isModelToLoad: true,.
         //isEditMode: true,

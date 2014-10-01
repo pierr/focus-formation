@@ -1,0 +1,19 @@
+{{!-- us in the view : "app/views/aviation/siteDetailCompositeView.js--}}
+{{#page "aviation.siteDetail.title"}}
+    {{!-- Bind child views to the template using following pattern: <div id="siteDetailConsultEdit"></div> --}}
+  {{#panel}}
+    {{#form}}
+    <div id="siteConsultEdit"></div>
+    <div id="secteurList"></div>
+    {{/form}}
+    {{#btn_toolbar}}
+      {{#if isEdit}}
+        {{button "Save" class="btnSave" type="submit"}}
+        {{button "Cancel" class="btnCancel"}}
+      {{else}}
+        {{button "Edit" class="btnEdit"}}
+      {{/if}}
+    {{/btn_toolbar}}
+   {{/panel}}
+ {{/page}}
+

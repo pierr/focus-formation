@@ -10,8 +10,8 @@ var urls = {
     },
     aviation: {
     	site: root + "/site",
-    	sites: root + "/sites"
-        secteur: root + "/secteur"
+    	sites: root + "/sites",
+        secteur: root + "/secteur",
         secteurs: root + "/secteurs"
     },
     rightsManagement: root + "/api/permission"

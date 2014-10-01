@@ -19,7 +19,9 @@ module.exports = {
       parseArgument: "val",
       options: {
         dropdownAutoWidth: true,
-        minimumInputLength: 3
+        minimumInputLength: 3,
+        allowClear: true,
+        placeholder: "---"
       }
     });
 

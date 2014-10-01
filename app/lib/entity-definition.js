@@ -73,6 +73,9 @@ module.exports = {
             },
             "dateOuverture": {
                 domain: "DO_DATE"
+            },
+            "codeSecteur": {
+                domain: "DO_LISTE_MULTI"
             }
         },
         "secteur": {

@@ -24,6 +24,16 @@ var site = function(p) {
                 name: "site",
                 url: '#aviation/site/' + p.siteId.value,
                 roles: ['DEFAULT_ROLE']
+            },
+            {
+                name: "siteComposite",
+                url: '#aviation/siteComposite/' + p.siteId.value,
+                roles: ['DEFAULT_ROLE']
+            },
+            {
+                name: "secteurs",
+                url: "#aviation/secteurs",
+                roles: ['DEFAULT_ROLE']
             }]
         }],
         pages: [
