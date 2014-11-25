@@ -10,7 +10,6 @@
   "dependencies": {
     "backbone": "~1.1.0",
     "underscore": "~1.5.2",
-    "bootstrap": "~3.1.0",
     "console-polyfill": "~0.1.0",
     "jquery": "~1.11.0",
     "moment": "~2.6.0",
@@ -27,7 +26,8 @@
     "numeral": "~1.5.3",
     "bootstrap-multiselect": "~0.9.4",
     "moment-timezone": "~0.0.6",
-    "d3": "~3.4.8"
+    "d3": "~3.4.8",
+    "bootstrap-material-design": "~0.1.6"
   },
   "overrides": {
     "backbone": {
@@ -118,18 +118,21 @@
       ]
     },
     "moment-timezone": {
-        "dependencies": {
-            "moment": "*"
-        },
-    "main": [
-      "moment-timezone.js"
-    ]
-  },
+      "dependencies": {
+        "moment": "*"
+      },
+      "main": [
+        "moment-timezone.js"
+      ]
+    },
     "numeral": {
       "main": [
         "numeral.js",
         "languages.js"
       ]
     }
+  },
+  "resolutions": {
+    "jquery": "~2.1.1"
   }
 }
