@@ -1,6 +1,6 @@
 //Dependencies.
 var ConsultEditView = Fmk.Views.ConsultEditView;
-var msgSvc = require('../../../services/serviceMessage');
+var userSvc = require('../../../services/serviceUser');
 /**
  * @module 'views/message/message/messageDetail'
  * @type {ConsultEditView}
@@ -18,25 +18,25 @@ module.exports = ConsultEditView.extend({
     isEdit: false,
     DEBUG: true
   },
-  referenceNames:['typeMessages'],
+  //referenceNames:['pole'],
   /**
    * Template de consultation de la vue.
    * @type {function}
    */
-  templateConsult: require('./templates/messageConsult'),
+  templateConsult: require('./templates/userConsult'),
   /**
    * Template d'edition de la vue.
    * @type {function}
    */
-  templateEdit: require('./templates/messageEdit'),
+  templateEdit: require('./templates/userEdit'),
   /**
    * Service to call in order to load the data from a service.
    * @type {function}
    */
-  getModelSvc: msgSvc.loadMessageById,
+  getModelSvc: userSvc.loadUserById,
   /**
    * Service which is called in order to save the message.
    * @type {function}
    */
-  saveModelSvc: msgSvc.saveMessage
+  saveModelSvc: userSvc.saveUser
 });

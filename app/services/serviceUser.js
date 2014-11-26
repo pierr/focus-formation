@@ -1,19 +1,12 @@
 var utilHelper = Fmk.Helpers.utilHelper;
 var ArgumentInvalidException = Fmk.Helpers.Exceptions.ArgumentInvalidException;
 /**
- * Load a message by its identifier.
- * @param  {string} msgId - The message identifier.
+ * Load a user by its identifier.
+ * @param  {string} userId - The user identifier.
  * @return {Promise} - The loading promise of the message.
  */
-function loadMessageById(msgId) {
-  var jsonMessage = {
-    id: msgId,
-    text: Faker.Lorem.sentence(),
-    date: new Date().toISOString(),
-    author: Faker.Name.findName(),
-    authorId: utilHelper.guid(),
-    type: 1
-  };
+function loadUserById(userId) {
+  var jsonMessage = _getUser(userId)
   return utilHelper.loadLocalData(jsonMessage);
 }
 
@@ -37,11 +30,11 @@ function _getUser(id) {
  * @param  {object} jsonMessage The json message.
  * @return {Promise}  The save promise.
  */
-function saveMessage(jsonMessage) {
-  if (!jsonMessage.id) {
-    jsonMessage.id = utilHelper.guid();
+function saveUser(jsonUser) {
+  if (!jsonUser.id) {
+    jsonUser.id = utilHelper.guid();
   }
-  return utilHelper.loadLocalData(jsonMessage);
+  return utilHelper.loadLocalData(jsonUser);
 }
 
 /**
@@ -68,7 +61,7 @@ function loadUserListByCriteria(userCriteria, pageInfos) {
 }
 
 module.exports = {
-  loadMessageById: loadMessageById,
-  saveMessage: saveMessage,
+  loadUserById: loadUserById,
+  saveUser: saveUser,
   loadUserListByCriteria: loadUserListByCriteria
 };

@@ -1,11 +1,12 @@
-<h2>Consultation du message {{id}}</h2>
-{{#form}}
-  {{input_for "id"}}
-  {{input_for "text"}}
-  {{input_for "date"}}
-  {{input_for "author"}}
-  {{input_for "authorId"}}
-  {{options_selected "type" listKey='typeMessages'}}
-  {{button_save}}
-  {{button_cancel}}
-{{/form}}
+<div class="well">
+  <h2>Consultation du contact {{id}}</h2>
+  {{#form}}
+    {{input_for "firstName"}}
+    {{input_for "lastName"}}
+    {{input_for "email"}}
+    {{input_for "phone"}}
+    {{options_selected "poleCode" listKey='poles'}}
+    {{button_save}}
+    {{button_cancel}}
+  {{/form}}
+</div>

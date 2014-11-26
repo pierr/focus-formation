@@ -33,8 +33,8 @@ module.exports = Router.extend({
    * @return {undefined}
    */
   userDetailRoute: function userDetailRoute(userId) {
-    var UserModel = require('../models/user/userDetail/user');
-    var UserDetailView = require('../views/user/userDetail');
+    var UserModel = require('../models/user/userDetail/userModel');
+    var UserDetailView = require('../views/user/userDetail/userDetail');
     application.layout.setActiveMenu('user');
     application.layout.content.show(new UserDetailView({
       model: new UserModel({

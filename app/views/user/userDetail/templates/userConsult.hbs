@@ -1,11 +1,11 @@
-<h2>Consultation du message {{id}}</h2>
-{{#display}}
-  {{display_for "id"}}
-  {{display_for "text"}}
-  {{display_for "date"}}
-  {{display_for "author"}}
-  {{display_for "authorId"}}
-  {{display_for "type" listKey='typeMessages'}}
-
-  {{button_edit}}
-{{/display}}
+<div class="well">
+  <h2>Consultation du contect {{id}}</h2>
+  {{#display}}
+    {{display_for "firstName"}}
+    {{display_for "lastName"}}
+    {{display_for "email"}}
+    {{display_for "phone"}}
+    {{display_for "poleCode" listKey='poles'}}
+    {{button_edit}}
+  {{/display}}
+</div>
