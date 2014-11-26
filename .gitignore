@@ -24,3 +24,4 @@ Properties/
 *.suo
 *.sln
 public
+./**/.DS_Store
