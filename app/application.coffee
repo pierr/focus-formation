@@ -89,7 +89,7 @@ class Application extends Backbone.Marionette.Application
     
     @addInitializer (options) =>
       # Instantiate the router
-      @routers = require('./router/initialize');
+      @routers = require('./router');
 
     @start()
 

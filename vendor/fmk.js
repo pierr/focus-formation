@@ -1,5 +1,5 @@
-/* name: focus , version: 0.1.9 description: Klee group framework for SinglePageApplication.*/ 
- (function initialization(container) {var fmk = container.Fmk || {};fmk.name = 'focus';fmk.version = '0.1.9';container.Fmk = fmk;})(typeof module === 'undefined' && typeof window !== 'undefined' ? window : exports);
+/* name: focus , version: 0.2.0 description: Klee group framework for SinglePageApplication.*/ 
+ (function initialization(container) {var fmk = container.Fmk || {};fmk.name = 'focus';fmk.version = '0.2.0';container.Fmk = fmk;})(typeof module === 'undefined' && typeof window !== 'undefined' ? window : exports);
 /*global window, _*/
 (function initialization(container) {
   var fmk = container.Fmk || {};
@@ -24,7 +24,7 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   
 
 
-  return "<div class=\"navbar-static-top header\">\n  \n</div>\n<div>\n  <i class=\"fa fa-spinner fa-spin hidden\" id='ajaxIndicator'></i>\n</div>";
+  return "<div class=\"navbar-static-top header\">\r\n  \r\n</div>\r\n<div>\r\n  <i class=\"fa fa-spinner fa-spin hidden\" id='ajaxIndicator'></i>\r\n</div>";
   });;
 this["Fmk"] = this["Fmk"] || {};
 this["Fmk"]["templates"] = this["Fmk"]["templates"] || {};
@@ -36,7 +36,7 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
 function program1(depth0,data) {
   
   var buffer = "", stack1, helper, options;
-  buffer += "\n             <li id='";
+  buffer += "\r\n             <li id='";
   if (helper = helpers.cssId) { stack1 = helper.call(depth0, {hash:{},data:data}); }
   else { helper = (depth0 && depth0.cssId); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
   buffer += escapeExpression(stack1)
@@ -51,7 +51,7 @@ function program1(depth0,data) {
   if (helper = helpers.dataAttributes) { stack1 = helper.call(depth0, {hash:{},data:data}); }
   else { helper = (depth0 && depth0.dataAttributes); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
   buffer += escapeExpression(stack1)
-    + " >\n                <a href=\"";
+    + " >\r\n                <a href=\"";
   if (helper = helpers.route) { stack1 = helper.call(depth0, {hash:{},data:data}); }
   else { helper = (depth0 && depth0.route); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
   buffer += escapeExpression(stack1)
@@ -60,7 +60,7 @@ function program1(depth0,data) {
     'prefix': ("header."),
     'suffix': (".title")
   },data:data},helper ? helper.call(depth0, (depth0 && depth0.name), options) : helperMissing.call(depth0, "t", (depth0 && depth0.name), options)))
-    + "</a>\n             </li>\n          ";
+    + "</a>\r\n             </li>\r\n          ";
   return buffer;
   }
 function program2(depth0,data) {
@@ -69,10 +69,10 @@ function program2(depth0,data) {
   return "active";
   }
 
-  buffer += "<div class=\"navbar-default\">\n    <div class=\"container\">\n      <div class=\"navbar-header\">\n        <button type=\"button\" class=\"navbar-toggle\" data-toggle=\"collapse\" data-target=\".navbar-collapse\">\n          <span class=\"icon-bar\"></span>\n          <span class=\"icon-bar\"></span>\n          <span class=\"icon-bar\"></span>\n        </button>\n        <a class=\"navbar-brand\" href=\"#\"></a>\n      </div>\n      <div class=\"navbar-collapse collapse\" >\n        <ul class=\"nav navbar-nav\">\n          ";
+  buffer += "<div class=\"navbar-default\">\r\n    <div class=\"container\">\r\n      <div class=\"navbar-header\">\r\n        <button type=\"button\" class=\"navbar-toggle\" data-toggle=\"collapse\" data-target=\".navbar-collapse\">\r\n          <span class=\"icon-bar\"></span>\r\n          <span class=\"icon-bar\"></span>\r\n          <span class=\"icon-bar\"></span>\r\n        </button>\r\n        <a class=\"navbar-brand\" href=\"#\"></a>\r\n      </div>\r\n      <div class=\"navbar-collapse collapse\" >\r\n        <ul class=\"nav navbar-nav\">\r\n          ";
   stack1 = helpers.each.call(depth0, (depth0 && depth0.headerItems), {hash:{},inverse:self.noop,fn:self.program(1, program1, data),data:data});
   if(stack1 || stack1 === 0) { buffer += stack1; }
-  buffer += "\n    </ul>\n  </div>\n</div>";
+  buffer += "\r\n    </ul>\r\n  </div>\r\n</div>";
   return buffer;
   });;
 this["Fmk"] = this["Fmk"] || {};
@@ -83,15 +83,15 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   var buffer = "", helper, options, helperMissing=helpers.helperMissing, escapeExpression=this.escapeExpression;
 
 
-  buffer += "<!-- Modal -->\n<div class=\"modal fade\" data-modal  datatabindex=\"-1\" role=\"dialog\" aria-labelledby=\"myModalLabel\" aria-hidden=\"true\">\n  <div class=\"modal-dialog\">\n    <div class=\"modal-content\">\n      <div class=\"modal-header\">\n        <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-hidden=\"true\">&times;</button>\n        <h4 class=\"modal-title\" id=\"myModalLabel\">"
+  buffer += "<!-- Modal -->\r\n<div class=\"modal fade\" data-modal  datatabindex=\"-1\" role=\"dialog\" aria-labelledby=\"myModalLabel\" aria-hidden=\"true\">\r\n  <div class=\"modal-dialog\">\r\n    <div class=\"modal-content\">\r\n      <div class=\"modal-header\">\r\n        <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-hidden=\"true\">&times;</button>\r\n        <h4 class=\"modal-title\" id=\"myModalLabel\">"
     + escapeExpression((helper = helpers.t || (depth0 && depth0.t),options={hash:{
     'keyInContext': (true)
   },data:data},helper ? helper.call(depth0, "title", options) : helperMissing.call(depth0, "t", "title", options)))
-    + "</h4>\n      </div>\n      <div class=\"modal-body\" data-modal-content>\n      \n      </div>\n      <div class=\"modal-footer\">\n        <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">"
+    + "</h4>\r\n      </div>\r\n      <div class=\"modal-body\" data-modal-content>\r\n      \r\n      </div>\r\n      <div class=\"modal-footer\">\r\n        <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">"
     + escapeExpression((helper = helpers.t || (depth0 && depth0.t),options={hash:{},data:data},helper ? helper.call(depth0, "button.modalClose", options) : helperMissing.call(depth0, "t", "button.modalClose", options)))
-    + "</button>\n        <button type=\"button\" class=\"btn btn-primary\" data-close=\"modal\">"
+    + "</button>\r\n        <button type=\"button\" class=\"btn btn-primary\" data-close=\"modal\">"
     + escapeExpression((helper = helpers.t || (depth0 && depth0.t),options={hash:{},data:data},helper ? helper.call(depth0, "button.modalSave", options) : helperMissing.call(depth0, "t", "button.modalSave", options)))
-    + "</button>\n      </div>\n    </div>\n  </div>\n</div>";
+    + "</button>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>";
   return buffer;
   });;
 this["Fmk"] = this["Fmk"] || {};
@@ -119,11 +119,11 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
 function program1(depth0,data) {
   
   var buffer = "", stack1, helper;
-  buffer += "\n    <strong>";
+  buffer += "\r\n    <strong>";
   if (helper = helpers.message) { stack1 = helper.call(depth0, {hash:{},data:data}); }
   else { helper = (depth0 && depth0.message); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
   buffer += escapeExpression(stack1)
-    + "</strong><br />\n  ";
+    + "</strong><br />\r\n  ";
   return buffer;
   }
 
@@ -131,10 +131,10 @@ function program1(depth0,data) {
   if (helper = helpers.cssMessageType) { stack1 = helper.call(depth0, {hash:{},data:data}); }
   else { helper = (depth0 && depth0.cssMessageType); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
   buffer += escapeExpression(stack1)
-    + "'>\n  <button type='button' class='close' data-dismiss='alert'>&times;</button>\n  ";
+    + "'>\r\n  <button type='button' class='close' data-dismiss='alert'>&times;</button>\r\n  ";
   stack1 = helpers.each.call(depth0, (depth0 && depth0.messages), {hash:{},inverse:self.noop,fn:self.program(1, program1, data),data:data});
   if(stack1 || stack1 === 0) { buffer += stack1; }
-  buffer += "\n</div>";
+  buffer += "\r\n</div>";
   return buffer;
   });;
 this["Fmk"] = this["Fmk"] || {};
@@ -145,9 +145,9 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   var buffer = "", helper, options, helperMissing=helpers.helperMissing, escapeExpression=this.escapeExpression;
 
 
-  buffer += "<div class='spinner-container'>\n       <div class='spinner'>\n          <div class=\"three-quarters\">\n            "
+  buffer += "<div class='spinner-container'>\r\n       <div class='spinner'>\r\n          <div class=\"three-quarters\">\r\n            "
     + escapeExpression((helper = helpers.t || (depth0 && depth0.t),options={hash:{},data:data},helper ? helper.call(depth0, "application.loading", options) : helperMissing.call(depth0, "t", "application.loading", options)))
-    + "\n          </div>\n       </div>\n   </div>";
+    + "\r\n          </div>\r\n       </div>\r\n   </div>";
   return buffer;
   });;
 (function() {
@@ -278,8 +278,14 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
    * @type {Object}
    */
   var config = {
-    totalCountKey: "odata.count",
-    valuesKey: "values"
+    //Parameters to parse the response
+    totalCountKey: "totalRecords",
+    valuesKey: "values",
+    //parameters to expose the data
+    parseResponse: {
+      totalCountKey: "totalRecords",
+      valuesKey: "values"
+    }
   };
 
   /**
@@ -308,9 +314,9 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
    * @type {Object}
    */
   var CONTENT_TYPES = {
-    LIST: "application/json+list",
-    LIST_META: "application/json+list+meta",
-    ENTITY_DESC: "applicatin/json+",
+    LIST: "json+list",
+    LIST_META: "json+list+meta",
+    ENTITY_DESC: "json+entity",
     ENTITY: "application/json"
   };
 
@@ -366,12 +372,11 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
         throw new ArgumentNullException("response.jsonResponse should be an array.", response);
       }
     }
-
-    return {
-      totalCount: totalCount,
-      values: values
-    };
-
+    //Result list to be publish
+    var listResult = {};
+    listResult[config.parseResponse.totalCountKey] = totalCount;
+    listResult[config.parseResponse.valuesKey] = values;
+    return listResult;
   };
 
   /**
@@ -772,6 +777,10 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
 
   //Regenerate the application routes.
   var regenerateRoutes = function regenerateRoutes() {
+    //Clean all previous registered routes.
+    routes = {};
+    siteStructure = {};
+    //Process the new routes.
     processElement(siteDescription);
   };
 
@@ -932,168 +941,168 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
 })(typeof module === 'undefined' && typeof window !== 'undefined' ? window.Fmk : module.exports);
 /*global i18n, window, moment*/
 (function(NS) {
-	"use strict";
-	//Filename: helpers/validators.js
-	NS = NS || {};
-	//Dependency gestion depending on the fact that we are in the browser or in node.
-	var isInBrowser = typeof module === 'undefined' && typeof window !== 'undefined';
-	var DependencyException = isInBrowser ? NS.Helpers.Exceptions.DependencyException : require("./custom_exception").DependencyException;
-	//All regex use in the application.
-	var regex = {
-		email: /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-		number: /^-?\d+(?:\.d*)?(?:e[+\-]?\d+)?$/i
-	};
+  "use strict";
+  //Filename: helpers/validators.js
+  NS = NS || {};
+  //Dependency gestion depending on the fact that we are in the browser or in node.
+  var isInBrowser = typeof module === 'undefined' && typeof window !== 'undefined';
+  var DependencyException = isInBrowser ? NS.Helpers.Exceptions.DependencyException : require("./custom_exception").DependencyException;
+  //All regex use in the application.
+  var regex = {
+    email: /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+    number: /^-?\d+(?:\.d*)?(?:e[+\-]?\d+)?$/i
+  };
 
-	//Function to test an email.
-	function emailValidation(emailToValidate, options) {
-		options = options || options;
-		return regex.email.test(emailToValidate);
-	}
-	//Function to validate a date.
-	function dateValidation(dateToValidate, options) {
-		return moment(dateToValidate).isValid();
-	}
+  //Function to test an email.
+  function emailValidation(emailToValidate, options) {
+    options = options || options;
+    return regex.email.test(emailToValidate);
+  }
+  //Function to validate a date.
+  function dateValidation(dateToValidate, options) {
+    return moment(dateToValidate).isValid();
+  }
 
-	//Function to test the length of a string.
-	function stringLength(stringToTest, options) {
-		if ('string' !== typeof stringToTest) {
-			return false;
-		}
-		options = options || {};
-		//console.log(options);
-		options.minLength = options.minLength || 0;
-		var isMinLength = options.minLength !== undefined ? stringToTest.length >= options.minLength : true;
-		var isMaxLength = options.maxLength !== undefined ? stringToTest.length <= options.maxLength : true;
-		return isMinLength && isMaxLength;
-	}
-	//Function to  validate that an input is a number.
-	function numberValidation(numberToValidate, options) {
-		options = options || options;
-		if (!numberToValidate) {
-			return true;
-		}
-		if (isNaN(numberToValidate)) {
-			return false;
-		}
-		numberToValidate = +numberToValidate; //Cast it into a number.
-		var isMin = options.min !== undefined ? numberToValidate >= options.min : true;
-		var isMax = options.max !== undefined ? numberToValidate <= options.max : true;
-		return isMin && isMax;
-	}
+  //Function to test the length of a string.
+  function stringLength(stringToTest, options) {
+    if ('string' !== typeof stringToTest) {
+      return false;
+    }
+    options = options || {};
+    //console.log(options);
+    options.minLength = options.minLength || 0;
+    var isMinLength = options.minLength !== undefined ? stringToTest.length >= options.minLength : true;
+    var isMaxLength = options.maxLength !== undefined ? stringToTest.length <= options.maxLength : true;
+    return isMinLength && isMaxLength;
+  }
+  //Function to  validate that an input is a number.
+  function numberValidation(numberToValidate, options) {
+    options = options || options;
+    if (!numberToValidate) {
+      return true;
+    }
+    if (isNaN(numberToValidate)) {
+      return false;
+    }
+    numberToValidate = +numberToValidate; //Cast it into a number.
+    var isMin = options.min !== undefined ? numberToValidate >= options.min : true;
+    var isMax = options.max !== undefined ? numberToValidate <= options.max : true;
+    return isMin && isMax;
+  }
 
-	//Validate a property, a property shoul be as follow: `{name: "field_name",value: "field_value", validators: [{...}] }`
-	var validate = function validate(property, validators) {
-		//console.log("validate", property, validators);
-		var errors, res, validator, _i, _len;
-		errors = [];
-		if (validators) {
-			for (_i = 0, _len = validators.length; _i < _len; _i++) {
-				validator = validators[_i];
-				res = validateProperty(property, validator);
-				if (res !== null && res !== undefined) {
-					errors.push(res);
-				}
-			}
-		}
-		return {
-			name: property.name,
-			value: property.value,
-			isValid: errors.length === 0,
-			errors: errors
-		};
-	};
+  //Validate a property, a property shoul be as follow: `{name: "field_name",value: "field_value", validators: [{...}] }`
+  var validate = function validate(property, validators) {
+    //console.log("validate", property, validators);
+    var errors, res, validator, _i, _len;
+    errors = [];
+    if (validators) {
+      for (_i = 0, _len = validators.length; _i < _len; _i++) {
+        validator = validators[_i];
+        res = validateProperty(property, validator);
+        if (res !== null && res !== undefined) {
+          errors.push(res);
+        }
+      }
+    }
+    return {
+      name: property.name,
+      value: property.value,
+      isValid: errors.length === 0,
+      errors: errors
+    };
+  };
 
-	var validateProperty = function validateProperty(property, validator) {
-		var isValid;
-		if (!validator) {
-			return void 0;
-		}
-		if (!property) {
-			return void 0;
-		}
-		isValid = (function() {
-			switch (validator.type) {
-				case "required":
-					var prevalidString = property.value === "" ? false : true;
-					var prevalidDate = true;
-					return validator.value === true ? (property.value !== null && property.value !== undefined && prevalidString && prevalidDate) : true;
-				case "regex":
-					if (property.value === undefined || property.value === null) {
-						return true;
-					}
-					return validator.value.test(property.value);
-				case "email":
-					if (property.value === undefined || property.value === null) {
-						return true;
-					}
-					return emailValidation(property.value, validator.options);
-				case "number":
-					return numberValidation(property.value, validator.options);
-				case "string":
-					var stringToValidate = property.value || "";
-					return stringLength(stringToValidate, validator.options);
-				case "date":
-					return dateValidation(property.value, validator.options);
-				case "function":
-					return validator.value(property.value, validator.options);
-				default:
-					return void 0;
-			}
-		})();
-		if (isValid === undefined || isValid === null) {
-			console.warn('The validator of type: ' + validator.type + ' is not defined'); //Todo: call the logger.
-		} else if (isValid === false) {
+  var validateProperty = function validateProperty(property, validator) {
+    var isValid;
+    if (!validator) {
+      return void 0;
+    }
+    if (!property) {
+      return void 0;
+    }
+    isValid = (function() {
+      switch (validator.type) {
+        case "required":
+          var prevalidString = property.value === "" ? false : true;
+          var prevalidDate = true;
+          return validator.value === true ? (property.value !== null && property.value !== undefined && prevalidString && prevalidDate) : true;
+        case "regex":
+          if (property.value === undefined || property.value === null) {
+            return true;
+          }
+          return validator.value.test(property.value);
+        case "email":
+          if (property.value === undefined || property.value === null) {
+            return true;
+          }
+          return emailValidation(property.value, validator.options);
+        case "number":
+          return numberValidation(property.value, validator.options);
+        case "string":
+          var stringToValidate = property.value || "";
+          return stringLength(stringToValidate, validator.options);
+        case "date":
+          return dateValidation(property.value, validator.options);
+        case "function":
+          return validator.value(property.value, validator.options);
+        default:
+          return void 0;
+      }
+    })();
+    if (isValid === undefined || isValid === null) {
+      console.warn('The validator of type: ' + validator.type + ' is not defined'); //Todo: call the logger.
+    } else if (isValid === false) {
 
-			//Add the name of the property.
-			return getErrorLalel(validator.type, property.name, validator.options); //"The property " + property.name + " is invalid.";
-		}
-	};
+      //Add the name of the property.
+      return getErrorLalel(validator.type, property.name, validator.options); //"The property " + property.name + " is invalid.";
+    }
+  };
 
-	function getErrorLalel(type, fieldName, options) {
-		options = options || {};
-		if (!i18n) {
-			throw new DependencyException("Dependency not resolved: i18n.js");
-		}
-		var translationKey = options.translationKey ? options.translationKey : "domain.validation." + type;
-		return i18n.translate(translationKey, {
-			fieldName: fieldName,
-			options: options
-		});
-		/*var message = (function() {
-		switch (type) {
-			case "required":
-				return i18n.translate();
-			case "regex":
-				return validator.value.test(property.value);
-			case "email":
-				return emailValidation(property.value, validator.options);
-			case "number":
-				return numberValidation(property.value, validator.options);
-			case "string":
-				return stringLength(property.value, validator.options);
-			case "function":
-				return validator.value(property.value, validator.options);
-			default:
-				return void 0;
-		}
-	})();*/
-	}
+  function getErrorLalel(type, fieldName, options) {
+    options = options || {};
+    if (!i18n) {
+      throw new DependencyException("Dependency not resolved: i18n.js");
+    }
+    var translationKey = options.translationKey ? options.translationKey : "domain.validation." + type;
+    return i18n.translate(translationKey, {
+      fieldName: fieldName,
+      options: options
+    });
+    /*var message = (function() {
+    switch (type) {
+      case "required":
+        return i18n.translate();
+      case "regex":
+        return validator.value.test(property.value);
+      case "email":
+        return emailValidation(property.value, validator.options);
+      case "number":
+        return numberValidation(property.value, validator.options);
+      case "string":
+        return stringLength(property.value, validator.options);
+      case "function":
+        return validator.value(property.value, validator.options);
+      default:
+        return void 0;
+    }
+  })();*/
+  }
 
-	// Validations functions.
-	var validators = {
-		email: emailValidation,
-		stringLength: stringLength,
-		number: numberValidation,
-		validate: validate
-	};
+  // Validations functions.
+  var validators = {
+    email: emailValidation,
+    stringLength: stringLength,
+    number: numberValidation,
+    validate: validate
+  };
 
-	// Differenciating export for node or browser.
-	if (isInBrowser) {
-		NS.Helpers = NS.Helpers || {};
-		NS.Helpers.validators = validators;
-	} else {
-		module.exports = validators;
-	}
+  // Differenciating export for node or browser.
+  if (isInBrowser) {
+    NS.Helpers = NS.Helpers || {};
+    NS.Helpers.validators = validators;
+  } else {
+    module.exports = validators;
+  }
 
 })(typeof module === 'undefined' && typeof window !== 'undefined' ? window.Fmk : module.exports);
 (function() {
@@ -1678,7 +1687,7 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
     var Model, isInBrowser, metadataBuilder;
     NS = NS || {};
     isInBrowser = typeof module === 'undefined' && typeof window !== 'undefined';
-    metadataBuilder = isInBrowser ? NS.Helpers.metadataBuilder : require("../helpers/metadata_builder");
+    metadataBuilder = isInBrowser ? NS.Helpers.metadataBuilder : require("../helpers/metadata_builder").metadataBuilder;
     Model = (function(_super) {
       __extends(Model, _super);
 
@@ -1836,50 +1845,50 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
     module.exports = Notification;
   }
 })(typeof module === 'undefined' && typeof window !== 'undefined' ? window.Fmk : module.exports);
-	/*global _, Backbone, window*/
+  /*global _, Backbone, window*/
   "use strict";
-	(function(NS) {
-		// Filename: models/notifications.js
-		NS = NS || {};
-		//Dependency gestion depending on the fact that we are in the browser or in node.
-		var isInBrowser = typeof module === 'undefined' && typeof window !== 'undefined';
-		var Notification = isInBrowser ? NS.Models.Notification : require('./notification');
+  (function(NS) {
+    // Filename: models/notifications.js
+    NS = NS || {};
+    //Dependency gestion depending on the fact that we are in the browser or in node.
+    var isInBrowser = typeof module === 'undefined' && typeof window !== 'undefined';
+    var Notification = isInBrowser ? NS.Models.Notification : require('./notification');
 
-		//This collection will contains all the message which will be display in the application.
-		var Notifications = Backbone.Collection.extend({
-			model: Notification,
-			// Return a constructed object filtered by error type.
-			getMessagesByType: function filterByTypeMessage() {
-				var jsonCollection = this.toJSON();
-				var messages = {};
-				messages.errorMessages = _.where(jsonCollection, {
-					'type': 'error'
-				});
-				messages.warningMessages = _.where(jsonCollection, {
-					'type': 'warning'
-				});
-				messages.infoMessages = _.where(jsonCollection, {
-					'type': 'info'
-				});
-				messages.successMessages = _.where(jsonCollection, {
-					'type': 'success'
-				});
-				return messages;
-			},
-			//Create a comparatot method in order to be able to sort them on their type
-			comparator: function comparator(notification) {
-				return notification.get("creationDate");
-			}
-		});
+    //This collection will contains all the message which will be display in the application.
+    var Notifications = Backbone.Collection.extend({
+      model: Notification,
+      // Return a constructed object filtered by error type.
+      getMessagesByType: function filterByTypeMessage() {
+        var jsonCollection = this.toJSON();
+        var messages = {};
+        messages.errorMessages = _.where(jsonCollection, {
+          'type': 'error'
+        });
+        messages.warningMessages = _.where(jsonCollection, {
+          'type': 'warning'
+        });
+        messages.infoMessages = _.where(jsonCollection, {
+          'type': 'info'
+        });
+        messages.successMessages = _.where(jsonCollection, {
+          'type': 'success'
+        });
+        return messages;
+      },
+      //Create a comparatot method in order to be able to sort them on their type
+      comparator: function comparator(notification) {
+        return notification.get("creationDate");
+      }
+    });
 
-		// Differenciating export for node or browser.
-		if (isInBrowser) {
-			NS.Models = NS.Models || {};
-			NS.Models.Notifications = Notifications;
-		} else {
-			module.exports = Notifications;
-		}
-	})(typeof module === 'undefined' && typeof window !== 'undefined' ? window.Fmk : module.exports);
+    // Differenciating export for node or browser.
+    if (isInBrowser) {
+      NS.Models = NS.Models || {};
+      NS.Models.Notifications = Notifications;
+    } else {
+      module.exports = Notifications;
+    }
+  })(typeof module === 'undefined' && typeof window !== 'undefined' ? window.Fmk : module.exports);
 /* global window */
 (function(NS) {
  "use strict";
@@ -1996,63 +2005,63 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
 /*global Backbone, window*/
 "use strict";
 (function(NS) {
-	//Filename: views/notifications-view.js
-	NS = NS || {};
-	var isInBrowser = typeof module === 'undefined' && typeof window !== 'undefined';
-	var template = isInBrowser ? NS.templates.notifications : function(){}; //require('./templates/notifications'); //Todo: call a handlebars function.
-	var NotificationsView = Backbone.View.extend({
-		tagName: 'div',
-		className: 'notifications',
-		template: template,
-		//Render each type of notification.
-		render: function() {
-			var messages = this.model.getMessagesByType();
-			/*We have to add css property to the message in order  to use the same template.*/
-			var messageToPrint = {};
-			messageToPrint.errorMessages = {
-				messages: messages.errorMessages,
-				cssMessageType: 'danger'
-			};
-			messageToPrint.warningMessages = {
-				messages: messages.warningMessages,
-				cssMessageType: 'warning'
-			};
-			messageToPrint.successMessages = {
-				messages: messages.successMessages,
-				cssMessageType: 'success'
-			};
-			messageToPrint.infoMessages = {
-				messages: messages.infoMessages,
-				cssMessageType: 'info'
-			};
-			this.$el.html('');
-			//In order to call the templat only if needed.
-			function printMessageIfExists(messageContainerName, context) {
-				if (messages[messageContainerName].length > 0) {
-					context.$el.append(template(messageToPrint[messageContainerName]));
-				}
-			}
-			printMessageIfExists('errorMessages', this); //The this is put into a closure in order to not lose it.
-			printMessageIfExists('warningMessages', this);
-			printMessageIfExists('infoMessages', this);
-			printMessageIfExists('successMessages', this);
-			return this;
-		},
-		initialize: function initialize() {
-			//We bind the model changes to a render.
-			this.model.on('change', function() {
-				this.render();
-			});
-		}
-	});
+  //Filename: views/notifications-view.js
+  NS = NS || {};
+  var isInBrowser = typeof module === 'undefined' && typeof window !== 'undefined';
+  var template = isInBrowser ? NS.templates.notifications : function(){}; //require('./templates/notifications'); //Todo: call a handlebars function.
+  var NotificationsView = Backbone.View.extend({
+    tagName: 'div',
+    className: 'notifications',
+    template: template,
+    //Render each type of notification.
+    render: function() {
+      var messages = this.model.getMessagesByType();
+      /*We have to add css property to the message in order  to use the same template.*/
+      var messageToPrint = {};
+      messageToPrint.errorMessages = {
+        messages: messages.errorMessages,
+        cssMessageType: 'danger'
+      };
+      messageToPrint.warningMessages = {
+        messages: messages.warningMessages,
+        cssMessageType: 'warning'
+      };
+      messageToPrint.successMessages = {
+        messages: messages.successMessages,
+        cssMessageType: 'success'
+      };
+      messageToPrint.infoMessages = {
+        messages: messages.infoMessages,
+        cssMessageType: 'info'
+      };
+      this.$el.html('');
+      //In order to call the templat only if needed.
+      function printMessageIfExists(messageContainerName, context) {
+        if (messages[messageContainerName].length > 0) {
+          context.$el.append(template(messageToPrint[messageContainerName]));
+        }
+      }
+      printMessageIfExists('errorMessages', this); //The this is put into a closure in order to not lose it.
+      printMessageIfExists('warningMessages', this);
+      printMessageIfExists('infoMessages', this);
+      printMessageIfExists('successMessages', this);
+      return this;
+    },
+    initialize: function initialize() {
+      //We bind the model changes to a render.
+      this.model.on('change', function() {
+        this.render();
+      });
+    }
+  });
 
 
-	if (isInBrowser) {
-		NS.Views = NS.Views || {};
-		NS.Views.NotificationsView = NotificationsView;
-	} else {
-		module.exports = NotificationsView;
-	}
+  if (isInBrowser) {
+    NS.Views = NS.Views || {};
+    NS.Views.NotificationsView = NotificationsView;
+  } else {
+    module.exports = NotificationsView;
+  }
 })(typeof module === 'undefined' && typeof window !== 'undefined' ? window.Fmk : module.exports);
 /*global window, _,  $*/
 "use strict";
@@ -3318,6 +3327,7 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   };
   //Extend the backbone router.
   var Router = Backbone.Router.extend({
+    noRoleRoute: 'home',
     route: function(route, name, callback) {
       var router = this;
       if (!callback){
@@ -3329,12 +3339,12 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
       var f = function() {
           //console.log('route before', route);
         //Treat the home case.
-        if(route === ""){route = "home";}
+        if(route === ""){route = router.noRoleRoute;}
         var n = siteDescriptionBuilder.findRouteName(route);
         var rt = siteDescriptionBuilder.getRoute(n);
         //If the route does not exists, or the user does not have any right on the route display an error.
         if((rt === undefined && route!== '') || !userHelper.hasOneRole(rt.roles)){
-          backboneNotification.addNotification({type: "error", message: i18n.t('application.noRights')}, true);
+          backboneNotification.addNotification({type: "error", message: i18n.t('application.noRights')});
           return Backbone.history.navigate('', true);
         }else {
           //Rendre all the notifications in the stack.
@@ -3762,257 +3772,257 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
 })(typeof module === 'undefined' && typeof window !== 'undefined' ? window.Fmk : module.exports);
 /* global Backbone, Promise, _, window */
 (function(NS) {
-	"use strict";
-	//Filename: promisify_helper.js
-	NS = NS || {};
-	var isInBrowser = typeof module === 'undefined' && typeof window !== 'undefined';
-	var odataHelper = isInBrowser ? NS.Helpers.odataHelper : require("./odata_helper");
-	var httpResponseParser = isInBrowser ? NS.Core.httpResponseParser : require('../core/http_response_parser');
-	var ArgumentNullException = isInBrowser ? NS.Helpers.Exceptions.ArgumentNullException : require("./custom_exception").ArgumentNullException;
-	var ArgumentInvalidException = isInBrowser ? NS.Helpers.Exceptions.ArgumentInvalidException : require("./custom_exception").ArgumentInvalidException;
+  "use strict";
+  //Filename: promisify_helper.js
+  NS = NS || {};
+  var isInBrowser = typeof module === 'undefined' && typeof window !== 'undefined';
+  var odataHelper = isInBrowser ? NS.Helpers.odataHelper : require("./odata_helper");
+  var httpResponseParser = isInBrowser ? NS.Core.httpResponseParser : require('../core/http_response_parser');
+  var ArgumentNullException = isInBrowser ? NS.Helpers.Exceptions.ArgumentNullException : require("./custom_exception").ArgumentNullException;
+  var ArgumentInvalidException = isInBrowser ? NS.Helpers.Exceptions.ArgumentInvalidException : require("./custom_exception").ArgumentInvalidException;
 
 
 
-	// Backbone model with **promise** CRUD method instead of its own methods.
-	var PromiseModel = Backbone.Model.extend({
-		/**
-		 * Set the data for a promise model.
-		 * @param  {object} json to set in the model.
-		 * @param  {object} options on the save function such as the url.
-		 * @return {undefined}
-		 */
-		setData: function setDataPromiseModel(json, options) {
-			options = options || {};
-			if (_.isString(options.url)) {
-				this.urlRoot = options.url;
-			}
-			this.clear({
-				silent: true
-			});
-			this.set(json, {
-				silent: true
-			});
-		},
-		/**
-		 * Save the data for a promise model.
-		 * @param  {object} json to save in the model.
-		 * @param  {object} options on the save function such as the url.
-		 * @return {objet} a promise of save.
-		 */
-		saveData: function setDataPromiseModel(json, options) {
-			this.setData(json, options);
-			return this.save();
-		},
-		/**
-		 * Fetch the model.
-		 * @param  {object} json to set to the model before loading.
-		 * @param  {object} options on the save function such as the url.
-		 * @return {objet} a promise of fetch.
-		 */
-		fetchData: function fetchDataPromiseModel(json, options) {
-			this.setData(json, options);
-			return this.fetch();
-		},
-		//Ovverride the save method on the model in order to Return a promise.
-		save: function saveModel(options) {
-			var model = this;
-			var method = this.isNew() ? 'create' : 'update';
-			return new Promise(
-				function(resolve, reject) {
-					var opts = _.extend({
-						success: function(data, textStatus, jqXHR) {
-							resolve(httpResponseParser.parse(jqXHR));
-						},
-						error: reject
-					}, options);
-					Backbone.sync(method, model, opts);
-				}
-			);
-		},
-		//Replacing the classic destroy model with a promise.
-		destroy: function promiseDestroyModel() {
-			var model = this;
-			return new Promise(
-				function(resolve, reject) {
-					Backbone.sync('delete', model, {
-						success: resolve,
-						error: reject
-					});
-				}
-			);
-		},
-		//Replacing the classic backbone fetch with a promise, resolve and reject are givent as options.success, and options.error of the ajax.
-		fetch: function promiseFetchModel(options) {
-			options = options || {};
-			var model = this;
-			//console.log('promiseFetchModel', model);
-			return new Promise(function(resolve, reject) {
-				/*Don't use underscore but could have because bacckbone has a dependency on it.*/
-				options.success = function(data, textStatus, jqXHR) {
-					resolve(httpResponseParser.parse(jqXHR));
-				};
-				options.error = reject;
-				Backbone.sync('read', model, options);
-			});
-		}
+  // Backbone model with **promise** CRUD method instead of its own methods.
+  var PromiseModel = Backbone.Model.extend({
+    /**
+     * Set the data for a promise model.
+     * @param  {object} json to set in the model.
+     * @param  {object} options on the save function such as the url.
+     * @return {undefined}
+     */
+    setData: function setDataPromiseModel(json, options) {
+      options = options || {};
+      if (_.isString(options.url)) {
+        this.urlRoot = options.url;
+      }
+      this.clear({
+        silent: true
+      });
+      this.set(json, {
+        silent: true
+      });
+    },
+    /**
+     * Save the data for a promise model.
+     * @param  {object} json to save in the model.
+     * @param  {object} options on the save function such as the url.
+     * @return {objet} a promise of save.
+     */
+    saveData: function setDataPromiseModel(json, options) {
+      this.setData(json, options);
+      return this.save();
+    },
+    /**
+     * Fetch the model.
+     * @param  {object} json to set to the model before loading.
+     * @param  {object} options on the save function such as the url.
+     * @return {objet} a promise of fetch.
+     */
+    fetchData: function fetchDataPromiseModel(json, options) {
+      this.setData(json, options);
+      return this.fetch();
+    },
+    //Ovverride the save method on the model in order to Return a promise.
+    save: function saveModel(options) {
+      var model = this;
+      var method = this.isNew() ? 'create' : 'update';
+      return new Promise(
+        function(resolve, reject) {
+          var opts = _.extend({
+            success: function(data, textStatus, jqXHR) {
+              resolve(httpResponseParser.parse(jqXHR));
+            },
+            error: reject
+          }, options);
+          Backbone.sync(method, model, opts);
+        }
+      );
+    },
+    //Replacing the classic destroy model with a promise.
+    destroy: function promiseDestroyModel() {
+      var model = this;
+      return new Promise(
+        function(resolve, reject) {
+          Backbone.sync('delete', model, {
+            success: resolve,
+            error: reject
+          });
+        }
+      );
+    },
+    //Replacing the classic backbone fetch with a promise, resolve and reject are givent as options.success, and options.error of the ajax.
+    fetch: function promiseFetchModel(options) {
+      options = options || {};
+      var model = this;
+      //console.log('promiseFetchModel', model);
+      return new Promise(function(resolve, reject) {
+        /*Don't use underscore but could have because bacckbone has a dependency on it.*/
+        options.success = function(data, textStatus, jqXHR) {
+          resolve(httpResponseParser.parse(jqXHR));
+        };
+        options.error = reject;
+        Backbone.sync('read', model, options);
+      });
+    }
 
-	});
+  });
 
-	// Backbone collection with **promise** CRUD method instead of its own methods.
-	var PromiseCollection = Backbone.Collection.extend({
-		/**
-		 * Fetch the collection datas, clean the share collection and parse.
-		 * @param  {object} this object should have the following structure: {criteria: {key: "val"}, pagesInfos: {}}.
-		 * @param  {object} options can contain a url.
-		 * @return {object} the promise of the fetch and the parse with the Odata.
-		 */
-		fetchData: function fetchDataPromiseCollection(params, options) {
-			options = options || {};
-			params = params || {};
-			if (!_.isObject(params)) {
-				throw new ArgumentNullException('fetchDataPromiseCollection: params should be an object, check your service');
-			}
-			if (!_.isObject(params.pagesInfos)) {
-				throw new ArgumentInvalidException('fetchDataPromiseCollection: params should have a pagesInfos property, check your service', params);
-			}
-			//Clean the shared collection.
-			this.reset(null, {
-				silent: true
-			});
-			//If the url wants to be changed it can be done.
-			if (options.url) {
-				this.url = options.url;
-			}
+  // Backbone collection with **promise** CRUD method instead of its own methods.
+  var PromiseCollection = Backbone.Collection.extend({
+    /**
+     * Fetch the collection datas, clean the share collection and parse.
+     * @param  {object} this object should have the following structure: {criteria: {key: "val"}, pagesInfos: {}}.
+     * @param  {object} options can contain a url.
+     * @return {object} the promise of the fetch and the parse with the Odata.
+     */
+    fetchData: function fetchDataPromiseCollection(params, options) {
+      options = options || {};
+      params = params || {};
+      if (!_.isObject(params)) {
+        throw new ArgumentNullException('fetchDataPromiseCollection: params should be an object, check your service');
+      }
+      if (!_.isObject(params.pagesInfos)) {
+        throw new ArgumentInvalidException('fetchDataPromiseCollection: params should have a pagesInfos property, check your service', params);
+      }
+      //Clean the shared collection.
+      this.reset(null, {
+        silent: true
+      });
+      //If the url wants to be changed it can be done.
+      if (options.url) {
+        this.url = options.url;
+      }
 
-			//Automatically call the odataHelper to create the options.
-			return this.fetch(odataHelper.createOdataOptions(params.criteria, params.pagesInfos))
-				.then(odataHelper.parseOdataResponse);
-		},
-		//Override the default collection fetch method, using and returning a promise.
-		//Options is the options object which is sent to the jquery method.
-		fetch: function promiseFetchCollection(options) {
-			options = options || {};
-			var collection = this;
-			return new Promise(function(resolve, reject) {
-				/*Don't use underscore but could have because bacckbone has a dependency on it.*/
-				options.success = function(data, textStatus, jqXHR) {
-					resolve(httpResponseParser.parse(jqXHR));
-				};
-				options.error = reject;
-				Backbone.sync('read', collection, options);
-			});
-		},
-		save: function saveCollection() {
-			var model = this;
-			var method = 'create';
-			return new Promise(
-				function(resolve, reject) {
-					Backbone.sync(method, model, {
-						success: function(data, textStatus, jqXHR) {
-							resolve(httpResponseParser.parse(jqXHR));
-						},
-						error: reject
-					});
-				}
-			);
-		}
-	});
+      //Automatically call the odataHelper to create the options.
+      return this.fetch(odataHelper.createOdataOptions(params.criteria, params.pagesInfos))
+        .then(odataHelper.parseOdataResponse);
+    },
+    //Override the default collection fetch method, using and returning a promise.
+    //Options is the options object which is sent to the jquery method.
+    fetch: function promiseFetchCollection(options) {
+      options = options || {};
+      var collection = this;
+      return new Promise(function(resolve, reject) {
+        /*Don't use underscore but could have because bacckbone has a dependency on it.*/
+        options.success = function(data, textStatus, jqXHR) {
+          resolve(httpResponseParser.parse(jqXHR));
+        };
+        options.error = reject;
+        Backbone.sync('read', collection, options);
+      });
+    },
+    save: function saveCollection() {
+      var model = this;
+      var method = 'create';
+      return new Promise(
+        function(resolve, reject) {
+          Backbone.sync(method, model, {
+            success: function(data, textStatus, jqXHR) {
+              resolve(httpResponseParser.parse(jqXHR));
+            },
+            error: reject
+          });
+        }
+      );
+    }
+  });
 
-	//Convert an existing Backbone model to a _promise_ version of it.
-	var ConvertModel = function ConvertBackBoneModelToPromiseModel(model) {
-		if (model.url === undefined || model.urlRoot === undefined) {
-			throw new Error("ConvertBackBoneModelToPromiseModel: The url of the model: " + model.modelName + " cannot be undefined.");
-		}
-		var fields = {};
-		if (model.has('id')) {
-			_.extend(fields, model.pick('id'));
-		}
-		var promiseModel = new PromiseModel(fields);
-		var property = model.urlRoot !== undefined ? 'urlRoot' : 'url';
-		promiseModel[property] = model[property];
-		return promiseModel;
-	};
+  //Convert an existing Backbone model to a _promise_ version of it.
+  var ConvertModel = function ConvertBackBoneModelToPromiseModel(model) {
+    if (model.url === undefined || model.urlRoot === undefined) {
+      throw new Error("ConvertBackBoneModelToPromiseModel: The url of the model: " + model.modelName + " cannot be undefined.");
+    }
+    var fields = {};
+    if (model.has('id')) {
+      _.extend(fields, model.pick('id'));
+    }
+    var promiseModel = new PromiseModel(fields);
+    var property = model.urlRoot !== undefined ? 'urlRoot' : 'url';
+    promiseModel[property] = model[property];
+    return promiseModel;
+  };
 
-	//Convert an existing Backbone collection to a _promise_ version of it.
-	var ConvertCollection = function ConvertBackboneCollectionToPromiseCollection(collection) {
-		if (collection.url === undefined || collection.urlRoot === null) {
-			throw new Error("ConvertCollection: The  url of the collection " + collection.modelName + " cannot be undefined.");
-		}
-		var promiseCollection = new PromiseCollection();
-		promiseCollection.url = collection.url;
-		return promiseCollection;
-	};
+  //Convert an existing Backbone collection to a _promise_ version of it.
+  var ConvertCollection = function ConvertBackboneCollectionToPromiseCollection(collection) {
+    if (collection.url === undefined || collection.urlRoot === null) {
+      throw new Error("ConvertCollection: The  url of the collection " + collection.modelName + " cannot be undefined.");
+    }
+    var promiseCollection = new PromiseCollection();
+    promiseCollection.url = collection.url;
+    return promiseCollection;
+  };
 
-	// Convert an existing Backbone collection to a promise version of its changes 
-	// (when calling save, the { creates: [], deletes: [], updates: [] } object will be posted to collection.url)
-	var ConvertCollectionChanges = function ConvertBackboneCollectionToPromiseCollectionChanges(collection, changes) {
-		if (collection.url === undefined || collection.urlRoot === null) {
-			throw new Error("ConvertCollection: The  url of the collection " + collection.modelName + " cannot be undefined.");
-		}
-		var promiseCollectionChanges = new PromiseModel(new Backbone.Model(changes));
-		promiseCollectionChanges.urlRoot = collection.url;
-		return promiseCollectionChanges;
-	};
+  // Convert an existing Backbone collection to a promise version of its changes 
+  // (when calling save, the { creates: [], deletes: [], updates: [] } object will be posted to collection.url)
+  var ConvertCollectionChanges = function ConvertBackboneCollectionToPromiseCollectionChanges(collection, changes) {
+    if (collection.url === undefined || collection.urlRoot === null) {
+      throw new Error("ConvertCollection: The  url of the collection " + collection.modelName + " cannot be undefined.");
+    }
+    var promiseCollectionChanges = new PromiseModel(new Backbone.Model(changes));
+    promiseCollectionChanges.urlRoot = collection.url;
+    return promiseCollectionChanges;
+  };
 
-	/**
-	 * Generate a modle from  a json object and a url.
-	 * @param  {string} url  - The server api url.
-	 * @param  {object} json - JSON object representing the model properties.
-	 * @return {PromiseModel}      - A backbone model promisified with the good url.
-	 */
-	var generateModel = function generateModel(url, json) {
-		if (json !== undefined && json !== null && !_.isObject(json)) {
-			throw new ArgumentInvalidException(json);
-		}
-		if (!_.isString(url)) {
-			throw new ArgumentInvalidException(url);
-		}
-		var Model = PromiseModel.extend({
-			urlRoot: url
-		});
-		return new Model(json);
-	};
+  /**
+   * Generate a modle from  a json object and a url.
+   * @param  {string} url  - The server api url.
+   * @param  {object} json - JSON object representing the model properties.
+   * @return {PromiseModel}      - A backbone model promisified with the good url.
+   */
+  var generateModel = function generateModel(url, json) {
+    if (json !== undefined && json !== null && !_.isObject(json)) {
+      throw new ArgumentInvalidException(json);
+    }
+    if (!_.isString(url)) {
+      throw new ArgumentInvalidException(url);
+    }
+    var Model = PromiseModel.extend({
+      urlRoot: url
+    });
+    return new Model(json);
+  };
 
-	/**
-	 * Generate a collection from an url , json and metadatas.
-	 * @param  {[type]} url       [description]
-	 * @param  {[type]} json      [description]
-	 * @param  {[type]} metadatas [description]
-	 * @return {[type]}           [description]
-	 */
-	var generateCollection = function generateCollection(url, json) {
-		if (json !== undefined && !_.isArray(json)) {
-			throw new ArgumentInvalidException(json);
-		}
-		if (!_.isString(url)) {
-			throw new ArgumentInvalidException(url);
-		}
-		var Collection = PromiseCollection.extend({
-			url: url
-		});
-		return new Collection(json);
-	};
+  /**
+   * Generate a collection from an url , json and metadatas.
+   * @param  {[type]} url       [description]
+   * @param  {[type]} json      [description]
+   * @param  {[type]} metadatas [description]
+   * @return {[type]}           [description]
+   */
+  var generateCollection = function generateCollection(url, json) {
+    if (json !== undefined && !_.isArray(json)) {
+      throw new ArgumentInvalidException(json);
+    }
+    if (!_.isString(url)) {
+      throw new ArgumentInvalidException(url);
+    }
+    var Collection = PromiseCollection.extend({
+      url: url
+    });
+    return new Collection(json);
+  };
 
-	//Todo: see if it is necessary to expose Model and collection promisified.
-	var promisifyHelper = {
-		Model: PromiseModel,
-		Collection: PromiseCollection,
-		Convert: {
-			Model: ConvertModel,
-			Collection: ConvertCollection,
-			CollectionChanges: ConvertCollectionChanges
-		},
-		model: generateModel,
-		collection: generateCollection
-	};
+  //Todo: see if it is necessary to expose Model and collection promisified.
+  var promisifyHelper = {
+    Model: PromiseModel,
+    Collection: PromiseCollection,
+    Convert: {
+      Model: ConvertModel,
+      Collection: ConvertCollection,
+      CollectionChanges: ConvertCollectionChanges
+    },
+    model: generateModel,
+    collection: generateCollection
+  };
 
-	// Differenciating export for node or browser.
-	if (isInBrowser) {
-		NS.Helpers = NS.Helpers || {};
-		NS.Helpers.promisifyHelper = promisifyHelper;
-	} else {
-		module.exports = promisifyHelper;
-	}
+  // Differenciating export for node or browser.
+  if (isInBrowser) {
+    NS.Helpers = NS.Helpers || {};
+    NS.Helpers.promisifyHelper = promisifyHelper;
+  } else {
+    module.exports = promisifyHelper;
+  }
 })(typeof module === 'undefined' && typeof window !== 'undefined' ? window.Fmk : module.exports);
 /*global Promise, _, window, Backbone*/
 (function(NS) {
@@ -4156,7 +4166,7 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
 
   domains_definition = Fmk.Helpers.metadataBuilder.getDomains();
 
-  logger = window.l;
+  logger = new Logger();
 
   Handlebars.registerHelper('pick', function(val, options) {
     return options.hash[val];
@@ -5382,7 +5392,7 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
                         //The results are save into an object with a name for each reference list.
                     }
                     //Add the reference lists as model properties.
-                    _.extend(currentView.model, res);
+                    currentView.model.references = res; //Add all the references into the
                     currentView.model.trigger('references:loaded');
                     //Inform the view that we are ready to render well.
                 }).then(null, function(error) {
@@ -5454,7 +5464,11 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
         },
         //This method is use in order to inject json data to the template. By default, the this.model.toJSON() is called.
         getRenderData: function getCoreViewRenderData() {
-            return this.model.toJSON();
+            var jsonToRender = this.model.toJSON();
+            if (this.model.references) {
+                _.extend(jsonToRender, this.model.references);
+            }
+            return jsonToRender;
         },
         showCollapse: function showCollapseCoreView() {
             $('.collapse', this.$el).collapse('show');
@@ -5622,7 +5636,7 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
              * If there is an edit mode and this property is true, the view can start in edit mode. The templateEdit will be rendered.
              * @type {Boolean}
              */
-            isEdit: true,
+            isEdit: false,
             /**
              * If true, the view will navigate to the `generateNavigationUrl` url.
              * @type {Boolean}
@@ -5812,8 +5826,8 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
             var jsonToRender = this.model.toJSON();
 
             //Add the reference lists names to the json.
-            if (this.referenceNames) {
-                _.extend(jsonToRender, _.pick(this.model, this.referenceNames));
+            if (this.model.references) {
+                _.extend(jsonToRender,this.model.references);
             }
             //If there is a listUrl it is added to the 
             if (this.opts.listUrl) {
@@ -6088,6 +6102,9 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
         render: function renderConsultEditView() {
             //todo: see if a getRenderData different from each mode is necessary or it coul be deal inside the getRenderDatatFunction if needed.
             var templateName = this.isEdit ? 'templateEdit' : 'templateConsult';
+            if(!this[templateName] || !_.isFunction(this[templateName])){
+                throw new ArgumentNullException('The template for ' + templateName + 'is not defined.');
+            }
             if (this.opts.isElementRedefinition) {
                 this.setElement(this[templateName](this.getRenderData()));
             } else {
@@ -6821,6 +6838,15 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
                 var currentView = this;
                 //Call the service and inject the result into the model.
                 this.search(criteria, this.model.pageInfo()).then(function success(jsonResponse) {
+                    if(!_.isObject(jsonResponse)){
+                        throw new ArgumentInvalidException("The list view load response should be an object.");
+                    }
+                    if(!_.isArray(jsonResponse.values)){
+                        throw new ArgumentInvalidException("The list view load response  values should be an array.");
+                    }
+                    if(!_.isNumber(jsonResponse.totalRecords)){
+                        throw new ArgumentInvalidException("The list view load response  totalrecords should be a number.");
+                    }
                     currentView.opts.isReadyModelData = true;
                     currentView.model.setTotalRecords(jsonResponse.totalRecords);
                     currentView.model.reset(jsonResponse.values);
@@ -6960,8 +6986,10 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
             if (this.isEdit) {
                 opt.isEdit = this.isEdit;
             }
-            //Copy the references to the child.
-            model.set(_.pick(this.model, this.referenceNames), { silent: true });
+             if (this.model.references) {
+                //Copy the references to the child only if the collection has references.
+                model.references = this.model.references;
+            }
             //
             var lineView = new this.viewForEachLineConfiguration.LineView(_.extend({
                 model: model
@@ -7007,7 +7035,7 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
                 isViewForLine: this.viewForEachLineConfiguration.isActive
             }, {
                 exportUrl: this.opts.exportUrl + '/' + this.exportId
-            }, _.pick(this.model, this.referenceNames, "modelName", "metadatas"), { isEdit: this.isEdit }, this.additionalData())));
+            }, _.pick(this.model, "modelName", "metadatas"), this.model.references ,{ isEdit: this.isEdit }, this.additionalData())));
 
             //Conditionnal code for rendering a View  foreach line
             if (this.viewForEachLineConfiguration.isActive) {
@@ -7359,7 +7387,11 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
         },
         //get the JSON to attach to the template
         getRenderData: function getRenderDataSearch() {
-            return this.model.toJSON();
+            var jsonToRender = this.model.toJSON();
+            if (this.model.references) {
+                _.extend(jsonToRender,this.model.references);
+           }
+            return jsonToRender;
         },
 
         editCriteria: function editCriteria() {
@@ -7382,11 +7414,19 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
                 model: this.model
             });
         },
-
+        /**
+         * Get the criteria from the view.
+         * @return {object} A clone of the json model.
+         */
         getCriteria: function() {
-            return _.clone(_.omit(this.model.toJSON(), this.referenceNames));
+            return _.clone(this.model.toJSON());
         },
-
+        /**
+         * Run the search whent it is trigerred by the formaction or the session saved criteria.
+         * @param  {object} event   - jQuery event.
+         * @param  {object} options - Options for the running search.
+         * @return {undefined}
+         */
         runSearch: function runSearchSearchView(event, options) {
             var searchButton;
             var isEvent = event !== undefined && event !== null;
@@ -7419,10 +7459,11 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
                     if (isEvent) {
                         pageInfo.currentPage = 1;
                     }
-                    if(!currentView.search){
+                    if (!currentView.search) {
                         throw new NotImplementedException('The search property of this view is not defined, the search cannot be launched.', this);
                     }
-                    currentView.search(criteria, pageInfo)
+                    currentView
+                        .search(criteria, pageInfo)
                         .then(function success(jsonResponse) {
                             //Save the criteria in session.
                             currentView.searchResultsView.opts.isReadyResultsData = true;
@@ -7496,14 +7537,14 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
     });
 
     /*ModelValidator.validate(this.model)
-			.catch (currentView.model.setErrors)
-			.then(function(model) {
-				currentView.model.unsetErrors();
-				currentView.search(currentView.model.toJSON())
-					//.then(currentView.searchSuccess.bind(currentView))
-					.then(currentView.searchResults.reset.bind(currentView.searchResults))
-					.catch (currentView.searchError.bind(currentView))
-			});*/
+      .catch (currentView.model.setErrors)
+      .then(function(model) {
+        currentView.model.unsetErrors();
+        currentView.search(currentView.model.toJSON())
+          //.then(currentView.searchSuccess.bind(currentView))
+          .then(currentView.searchResults.reset.bind(currentView.searchResults))
+          .catch (currentView.searchError.bind(currentView))
+      });*/
 
     // Differenciating export for node or browser.
     if (isInBrowser) {

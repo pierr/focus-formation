@@ -1,5 +1,7 @@
 module.exports = {
     "key": "value",
+    "user": require('./fr-FR/user'),
+    "header": require('./fr-FR/header'),
     "application": {
         "name": "########SKELETON########",
         "navigation": {

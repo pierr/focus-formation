@@ -320,7 +320,7 @@ Handlebars.registerHelper "button_create",(options) ->
 # Example => button_search class="myClass"
 # Example => button_search text_key="myPage.myButtonName"
 Handlebars.registerHelper "button_search",(options) ->
-  return patternButton("button.search", {class:'btnSearch', type:"submit", icon:"search"}, options)
+  return patternButton("button.search", {class:'btnSearch btn-primary', type:"submit", icon:"search"}, options)
 
 # Reset button for search pattern
 # Example => button_reset

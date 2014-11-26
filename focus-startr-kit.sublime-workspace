@@ -4,6 +4,38 @@
 		"selected_items":
 		[
 			[
+				"Mess",
+				"MessageResultView"
+			],
+			[
+				"message",
+				"messageResultCollection"
+			],
+			[
+				"load",
+				"loadLocalData"
+			],
+			[
+				"mess",
+				"messages"
+			],
+			[
+				"serv",
+				"service"
+			],
+			[
+				"save",
+				"saveMessage"
+			],
+			[
+				"lo",
+				"loadLocalData"
+			],
+			[
+				"DO_",
+				"DO_TEXTE_30"
+			],
+			[
 				"sear",
 				"searchCriteria"
 			],
@@ -34,10 +66,6 @@
 			[
 				"con",
 				"connectiviy"
-			],
-			[
-				"load",
-				"loadTags"
 			],
 			[
 				"loadI",
@@ -328,10 +356,6 @@
 				"constructor"
 			],
 			[
-				"lo",
-				"localStorage"
-			],
-			[
 				"outp",
 				"outputs"
 			],
@@ -490,48 +514,16 @@
 			[
 				"toLo",
 				"toLowerCase()"
-			],
-			[
-				"cn",
-				"console"
-			],
-			[
-				"__",
-				"__dirname"
-			],
-			[
-				"DB",
-				"DB_URL	(str)"
-			],
-			[
-				"C",
-				"CACHE_URL	(str)"
-			],
-			[
-				"va",
-				"validateUserDoc(err, user)"
-			],
-			[
-				"user",
-				"username	(?)"
 			]
 		]
 	},
 	"buffers":
 	[
-		{
-			"file": "app/application.coffee",
-			"settings":
-			{
-				"buffer_size": 3654,
-				"line_ending": "Unix"
-			}
-		}
 	],
 	"build_system": "",
 	"command_palette":
 	{
-		"height": 367.0,
+		"height": 27.0,
 		"selected_items":
 		[
 			[
@@ -668,6 +660,30 @@
 	},
 	"file_history":
 	[
+		"/Users/pierrebesson/Dev/pierr/focus-starter-kit/.gitignore",
+		"/Users/pierrebesson/Dev/pierr/focus-starter-kit/app/router/messageRouter.js",
+		"/Users/pierrebesson/Dev/pierr/focus-starter-kit/app/views/message/messageRecherche/templates/messageCriteria.hbs",
+		"/Users/pierrebesson/Dev/pierr/focus-starter-kit/app/config/initializer/reference_list_initializer.js",
+		"/Users/pierrebesson/Dev/pierr/focus-starter-kit/app/config/domain/index.js",
+		"/Users/pierrebesson/Dev/pierr/focus-starter-kit/app/views/message/message/messageDetail.js",
+		"/Users/pierrebesson/Dev/pierr/focus-starter-kit/app/views/message/message/templates/messageEdit.hbs",
+		"/Users/pierrebesson/Dev/pierr/focus-starter-kit/app/views/message/message/templates/messageConsult.hbs",
+		"/Users/pierrebesson/Dev/pierr/focus-starter-kit/app/config/entityDefinition/message.js",
+		"/Users/pierrebesson/Dev/pierr/focus-starter-kit/app/config/entityDefinition/index.js",
+		"/Users/pierrebesson/Dev/pierr/focus-starter-kit/focus-startr-kit.sublime-workspace",
+		"/Users/pierrebesson/Dev/pierr/focus-starter-kit/app/services/serviceReference.js",
+		"/Users/pierrebesson/Dev/pierr/focus-starter-kit/app/views/message/messageRecherche/messageCriteria.js",
+		"/Users/pierrebesson/Dev/pierr/focus-starter-kit/app/views/message/messageRecherche/messageResults.js",
+		"/Users/pierrebesson/Dev/pierr/focus-starter-kit/app/views/message/messageRecherche/templates/messageResults.hbs",
+		"/Users/pierrebesson/Dev/pierr/focus-starter-kit/app/helper/view_helper/index.coffee",
+		"/Users/pierrebesson/Dev/pierr/focus-starter-kit/app/services/serviceMessage.js",
+		"/Users/pierrebesson/Dev/pierr/focus-starter-kit/app/models/message/messageRecherche/messageResultCollection.js",
+		"/Users/pierrebesson/Dev/pierr/focus-starter-kit/app/models/message/messageRecherche/messageResult.js",
+		"/Users/pierrebesson/Dev/pierr/focus-starter-kit/app/models/message/messageRecherche/messageCriteria.js",
+		"/Users/pierrebesson/Dev/pierr/focus-starter-kit/app/models/message/message/messageModel.js",
+		"/Users/pierrebesson/Dev/pierr/focus-starter-kit/app/helper/view_helper/criteria.coffee",
+		"/Users/pierrebesson/Dev/pierr/focus-starter-kit/app/services/serviceUser.js",
+		"/Users/pierrebesson/Dev/pierr/focus-starter-kit/app/application.coffee",
 		"/Users/pierrebesson/Dev/pierr/focus/lib/views/detail/detail-interaction.js",
 		"/Users/pierrebesson/Dev/pierr/focus/lib/views/detail/detail-defaults.js",
 		"/Users/pierrebesson/Dev/pierr/focus/lib/views/detail/index.js",
@@ -771,31 +787,7 @@
 		"/Users/pierrebesson/Dev/besson.vs/spa-fmk/documentation/first_page/create-page",
 		"/Users/pierrebesson/Dev/besson.vs/spa-fmk/documentation/create-page",
 		"/Users/pierrebesson/Dev/besson.vs/spa-fmk/documentation/architecture/index.md",
-		"/Users/pierrebesson/Dev/besson.vs/spa-fmk/documentation/architecture/json.md",
-		"/Users/pierrebesson/Dev/besson.vs/spa-fmk/documentation/server.js",
-		"/Users/pierrebesson/Dev/besson.vs/spa-fmk/documentation/index.html",
-		"/Users/pierrebesson/Dev/besson.vs/spa-fmk/docs.sh",
-		"/Users/pierrebesson/Dev/besson.vs/spa-fmk/documentation/pandoc.css",
-		"/Users/pierrebesson/Dev/besson.vs/spa-fmk/documentation/test.html",
-		"/Users/pierrebesson/Dev/besson.vs/spa-fmk/documentation/coderay.css",
-		"/Users/pierrebesson/Dev/besson.vs/spa-fmk/documentation/sld",
-		"/Users/pierrebesson/Dev/besson.vs/spa-fmk/documentation/mdtoRvl.sh",
-		"/Users/pierrebesson/Dev/besson.vs/spa-fmk/documentation/README.md",
-		"/Users/pierrebesson/Dev/besson.vs/spa-fmk/example/api/routes.js",
-		"/Users/pierrebesson/Dev/besson.vs/spa-fmk/docs/introduction.html",
-		"/Users/pierrebesson/Dev/besson.vs/spa-fmk/documentation/architecture/rest.md",
-		"/Users/pierrebesson/Dev/besson.vs/spa-fmk/example/api/server.js",
-		"/Users/pierrebesson/Dev/pierr/docco/docco.litcoffee",
-		"/Users/pierrebesson/Dev/pierr/notification-hub/.gitignore",
-		"/Users/pierrebesson/Dev/pierr/notification-hub/server.js",
-		"/Users/pierrebesson/Dev/pierr/notification-hub/package.json",
-		"/Users/pierrebesson/Dev/pierr/notification-hub/index.html",
-		"/Users/pierrebesson/Dev/pierr/notification-hub/notification-hub.html",
-		"/Users/pierrebesson/Dev/pierr/notification-hub/README.md",
-		"/Users/pierrebesson/Dev/pierr/notification-hub/bower_components/platform/platform.js",
-		"/Users/pierrebesson/Dev/besson.vs/spa-fmk/lib/views/detail-edit-view.js",
-		"/Users/pierrebesson/Dev/besson.vs/spa-fmk/test/initialize.coffee",
-		"/Users/pierrebesson/Dev/besson.vs/spa-fmk/lib/views/detail-consult-view.js"
+		"/Users/pierrebesson/Dev/besson.vs/spa-fmk/documentation/architecture/json.md"
 	],
 	"find":
 	{
@@ -821,6 +813,16 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"'results'",
+			"results",
+			"ul",
+			"'criteria",
+			"\"form",
+			"\"display",
+			"\"displat",
+			"}\n",
+			"typeMessage",
+			"saveModelSvc",
 			"blur",
 			"        ",
 			"\n        ",
@@ -938,17 +940,7 @@
 			"if (!this.has('id')) {\n		// 	_.extend(newDefault, {\n		// 		id: helper.guid()\n		// 	});\n		// }",
 			"},\n",
 			"		\n",
-			"large",
-			"t",
-			"io",
-			"coffee",
-			"connect",
-			"connect.multipart",
-			"│   /images",
-			"├── ",
-			"├──",
-			"\"",
-			"Mediator."
+			"large"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -979,123 +971,6 @@
 		{
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "app/application.coffee",
-					"settings":
-					{
-						"buffer_size": 3654,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								521,
-								521
-							]
-						],
-						"settings":
-						{
-							"annotations":
-							[
-								"TODO",
-								"README",
-								"FIXME"
-							],
-							"csslint_options":
-							{
-								"adjoining-classes": "warning",
-								"box-model": true,
-								"box-sizing": "warning",
-								"compatible-vendor-prefixes": "warning",
-								"display-property-grouping": true,
-								"duplicate-background-images": "warning",
-								"duplicate-properties": true,
-								"empty-rules": true,
-								"errors": true,
-								"fallback-colors": "warning",
-								"floats": "warning",
-								"font-faces": "warning",
-								"font-sizes": "warning",
-								"gradients": "warning",
-								"ids": "warning",
-								"import": "warning",
-								"important": "warning",
-								"known-properties": true,
-								"outline-none": "warning",
-								"overqualified-elements": "warning",
-								"qualified-headings": "warning",
-								"regex-selectors": "warning",
-								"rules-count": "warning",
-								"shorthand": "warning",
-								"star-property-hack": "warning",
-								"text-indent": "warning",
-								"underscore-property-hack": "warning",
-								"unique-headings": "warning",
-								"universal-selector": "warning",
-								"vendor-prefix": true,
-								"zero-units": "warning"
-							},
-							"gjslint_ignore":
-							[
-								110.0
-							],
-							"gjslint_options":
-							[
-							],
-							"javascript_linter": "jshint",
-							"jshint_options":
-							{
-								"browser": true,
-								"evil": true,
-								"regexdash": true,
-								"sub": true,
-								"trailing": true,
-								"wsh": true
-							},
-							"pep8": true,
-							"pep8_ignore":
-							[
-								"E501"
-							],
-							"perl_linter": "perlcritic",
-							"pyflakes_ignore":
-							[
-							],
-							"pyflakes_ignore_import_*": true,
-							"sublimelinter": true,
-							"sublimelinter_delay": 2.0,
-							"sublimelinter_disable":
-							[
-							],
-							"sublimelinter_executable_map":
-							{
-							},
-							"sublimelinter_fill_outlines": false,
-							"sublimelinter_gutter_marks": true,
-							"sublimelinter_gutter_marks_theme": "simple",
-							"sublimelinter_mark_style": "none",
-							"sublimelinter_notes": false,
-							"sublimelinter_objj_check_ascii": false,
-							"sublimelinter_popup_errors_on_save": false,
-							"sublimelinter_syntax_map":
-							{
-								"C++": "c",
-								"Python Django": "python",
-								"Ruby on Rails": "ruby"
-							},
-							"sublimelinter_wrap_find": true,
-							"syntax": "Packages/Better CoffeeScript/CoffeeScript.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 351.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				}
 			]
 		}
 	],
@@ -1144,6 +1019,10 @@
 		"height": 0.0,
 		"selected_items":
 		[
+			[
+				"messagee",
+				"app/views/message/message/templates/messageEdit.hbs"
+			],
 			[
 				"data",
 				"app/data/desc.json"

@@ -1,0 +1,17 @@
+{{!-- Search criteria  --}}
+<div class='{{col "4"}} well'>
+  {{#criteria}}
+    {{#form}}
+      {{input_for "firstName" isNoLabel=true}}
+      {{input_for "lastName" isNoLabel=true}}
+      {{input_for "email" isNoLabel=true}}
+      {{input_for "phone" isNoLabel=true}}
+      {{options_selected "type" listKey='poles' isNoLabel="true"}}
+      {{button_search}}
+    {{/form}}
+  {{/criteria}}
+</div>
+{{!-- Container for the results after the search --}}
+<div class='{{col "7"}} col-xs-offset-1'>
+  {{result_container}}
+</div>
