@@ -27,7 +27,8 @@
     "bootstrap-multiselect": "~0.9.4",
     "moment-timezone": "~0.0.6",
     "d3": "~3.4.8",
-    "bootstrap-material-design": "~0.1.6"
+    "bootstrap-material-design": "~0.1.6",
+    "animate.css": "~3.2.0"
   },
   "overrides": {
     "backbone": {
