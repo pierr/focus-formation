@@ -5,6 +5,8 @@ module.exports = {
     "projectsNumber": " projets",
     bikeNumber: " cyclistes",
     carNumber: " voitures",
-    busNumber: " bus"
+    busNumber: " bus",
+    "business": "Les chiffres clefs",
+    "projects": "Les projets",
   }
 };
