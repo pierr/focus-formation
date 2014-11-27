@@ -4,14 +4,7 @@ module.exports = {
     "header": require('./fr-FR/header'),
     "save": require('./fr-FR/save'),
     "accueil": require('./fr-FR/accueil'),
-    "application": {
-        "name": "########SKELETON########",
-        "navigation": {
-            "home": "accueil",
-            "reference": "Référence"
-        },
-        "pages": "par page"
-    },
+    "application": require('./fr-FR/application'),
     "error": {
         "unanticipated": "Une erreur non prévue est survenue."
     },

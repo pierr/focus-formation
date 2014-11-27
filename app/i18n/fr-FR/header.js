@@ -9,6 +9,6 @@ module.exports = {
     title: "Messages"
   },
   "home": {
-    title: "home"
+    title: "Accueil"
   }
 };

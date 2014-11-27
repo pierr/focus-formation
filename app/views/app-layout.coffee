@@ -1,7 +1,13 @@
 application = require 'application'
-HeaderView = Fmk.Views.HeaderView#require('./header-view')
+HeaderItemViewCustom = Fmk.Views.HeaderItemsView.extend({template: require('./templates/headerItem')});
+HeaderView = Fmk.Views.HeaderView.extend({
+    ViewForLevel: {
+        "level_0": HeaderItemViewCustom
+    },
+    template: require('./templates/header')
+});#require('./header-view')
 # Instantiate an header view.
-headerView = new HeaderView()
+headerView = new HeaderView({containerName: 'header'})
 
 module.exports = class AppLayout extends Backbone.Marionette.Layout
   template: 'views/templates/app-layout'

@@ -7,15 +7,6 @@ var site = function(p) {
             url: "#home",
             roles: ['DEFAULT_ROLE'],
             //requiredParams: ["param1"]
-        }, {
-            name: "administration",
-            url: '#administration/contacts',
-            roles: ['DEFAULT_ROLE'],
-            headers: [{
-                name: "contact",
-                url: '#administration/contact/1',
-                roles: ['DEFAULT_ROLE']
-            }]
         }, require('./message')(p), require('./user')(p)],
         pages: [
             //Test page 
