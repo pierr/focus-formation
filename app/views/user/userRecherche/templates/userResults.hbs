@@ -1,5 +1,6 @@
-<hr />
 <h2>Résultats <span class="badge">{{totalRecords}}</span></h2>
+<div class="animated fadeInLeft">
+
 {{#result isTable=false showHeaderActions=false isPaginate=false}}
   {{#each collection}}
     <div data-id='{{id}}' class="list-group-item {{poleCode}} well">
@@ -20,3 +21,4 @@
     {{!-- <div class="list-group-separator"></div> --}}
   {{/each}}
 {{/result}}
+</div>
