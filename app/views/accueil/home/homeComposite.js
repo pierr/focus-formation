@@ -3,6 +3,7 @@ var template = require('./templates/homeComposite');
 var CompositeView = Fmk.Views.CompositeView;
 module.exports = CompositeView.extend({
     template: template,
+   // className: "animate bounceIn",
     initialize: function initializeGraphCompositeView(options) {
         options = options || {};
         options.modelName = this.modelName;

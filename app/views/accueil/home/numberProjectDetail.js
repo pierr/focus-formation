@@ -6,6 +6,7 @@ var accSvc = require('../../../services/serviceAccueil');
  * @type {ConsultEditView}
  */
 module.exports = ConsultEditView.extend({
+   className: "animate bounceIn",
   /**
    * Options de la vue.
    * @type {Object}
