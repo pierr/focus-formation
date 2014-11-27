@@ -3,6 +3,7 @@ module.exports = {
     "user": require('./fr-FR/user'),
     "header": require('./fr-FR/header'),
     "save": require('./fr-FR/save'),
+    "accueil": require('./fr-FR/accueil'),
     "application": {
         "name": "########SKELETON########",
         "navigation": {

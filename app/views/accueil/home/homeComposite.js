@@ -11,7 +11,7 @@ module.exports = CompositeView.extend({
 
         //Initialize all the childViews
         this.registerNumberPeopleIndcator();
-        this.registerNumberProjectIndcator();
+        this.registerProjectIndcator();
         this.registerNews();
         this.registerArrivalContainer();
         /// Initiliaze the child views with the following pattern:
@@ -44,11 +44,23 @@ module.exports = CompositeView.extend({
         });
     },
     /**
-     * Register the subView of number of projects.
+     * Register the subView of number of people.
      * @return {undefined}
      */
-    registerNumberProjectIndcator: function registerNumberProjectIndcator() {
-
+    registerProjectIndcator: function registerProjectIndcator() {
+        var NumberProjectDetail = require('./numberProjectDetail');
+        var NumberProjectModel = require('../../../models/accueil/home/numberProjectModel');
+        //Enregistrement dans la vue en tant que propriété.
+        this.numberProjectDetail = new NumberProjectDetail({
+            model: new NumberProjectModel()
+        });
+        //Enregistremen de la vue dans le container global.
+        this.registerView({
+            selector: "div#numberProjectIndcatorContainer",
+            name: "numberProjectDetail",
+            type: "model",
+            modelProperty: "numberProject"
+        });
     },
     /**
      * Register the news view.
