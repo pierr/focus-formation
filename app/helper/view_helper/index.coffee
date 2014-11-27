@@ -656,6 +656,7 @@ Handlebars.registerHelper 'page', (title, options)->
   return html
 
 require './criteria'
+require './offset'
 
 # Create the default _opening_ html for table result. Works as a tag.
 # Works with _close_result_table_ helper.

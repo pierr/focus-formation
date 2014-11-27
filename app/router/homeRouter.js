@@ -5,8 +5,9 @@ module.exports = Fmk.Helpers.Router.extend({
     'home': 'home'
   },
   home: function() {
-    var HomeView = require('views/home-view');
+    var HomeView = require('../views/accueil/home/homeComposite');
+    var HomeModel = Backbone.Model.extend({modelName: "accueil.home"});
     application.layout.setActiveMenu('home');
-    application.layout.content.show(new HomeView());
+    application.layout.content.show(new HomeView({model: new HomeModel()}));
   }
 });

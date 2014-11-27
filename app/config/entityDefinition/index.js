@@ -63,5 +63,6 @@ module.exports = {
         }
     },
     "user": require('./user'),
-    "message": require('./message')
+    "message": require('./message'),
+    "accueil": require('./accueil')
 };
