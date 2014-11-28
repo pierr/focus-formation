@@ -28,7 +28,8 @@
     "javascript-brunch": ">= 1.0 < 1.7",
     "less-brunch": "^1.7.2",
     "stylus-brunch": ">= 1.0 < 1.7",
-    "uglify-js-brunch": ">= 1.0 < 1.7"
+    "uglify-js-brunch": ">= 1.0 < 1.7",
+    "hapi": "~7.5.2"
   },
   "main": "index.js",
   "directories": {
