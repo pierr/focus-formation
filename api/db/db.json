@@ -18,10 +18,13 @@
         "poleCode": 1
     },
     "a16c2a4d-8f2f-559a-4d46-c964206f4b36": {
+        "id": "a16c2a4d-8f2f-559a-4d46-c964206f4b36",
+        "isNewModel": false,
         "firstName": "Pierre",
         "lastName": "Besson",
         "email": "pierre.besson@kleegroup.com",
-        "id": "a16c2a4d-8f2f-559a-4d46-c964206f4b36"
+        "phone": "0661184963",
+        "poleCode": ""
     },
     "4ed9339c-e818-a77b-d351-b7632c6e8ad0": {
         "firstName": "Pierre",
@@ -34,5 +37,122 @@
         "lastName": "Besson",
         "email": "pierre.besson@kleegroup.com",
         "id": "94071f68-e7ae-13af-3ee8-33658dcf32c3"
+    },
+    "58e5cee7-6440-1559-e7db-3c560f427465": {
+        "filter": {
+            "isNewModel": "false",
+            "isCriteriaReadonly": "false",
+            "firstName": "",
+            "lastName": "",
+            "email": "",
+            "phone": "",
+            "poleCode": "",
+            "cid": "c19",
+            "metadatas": {
+                "id": {
+                    "domain": "DO_ID",
+                    "type": "text"
+                },
+                "firstName": {
+                    "domain": "DO_TEXTE_30",
+                    "required": "false"
+                },
+                "lastName": {
+                    "domain": "DO_TEXTE_30",
+                    "required": "false"
+                },
+                "dateOfArrival": {
+                    "domain": "DO_TEXTE_30",
+                    "required": "false"
+                },
+                "poleCode": {
+                    "domain": "DO_CODE"
+                }
+            },
+            "modelName": "user.userCriteria"
+        },
+        "top": "10",
+        "skip": "0",
+        "format": "json",
+        "inlinecount": "allpages",
+        "id": "58e5cee7-6440-1559-e7db-3c560f427465"
+    },
+    "6537b377-323f-1450-736c-69e9b250f2c6": {
+        "filter": {
+            "isNewModel": "false",
+            "isCriteriaReadonly": "false",
+            "firstName": "",
+            "lastName": "",
+            "email": "",
+            "phone": "",
+            "poleCode": "",
+            "cid": "c19",
+            "metadatas": {
+                "id": {
+                    "domain": "DO_ID",
+                    "type": "text"
+                },
+                "firstName": {
+                    "domain": "DO_TEXTE_30",
+                    "required": "false"
+                },
+                "lastName": {
+                    "domain": "DO_TEXTE_30",
+                    "required": "false"
+                },
+                "dateOfArrival": {
+                    "domain": "DO_TEXTE_30",
+                    "required": "false"
+                },
+                "poleCode": {
+                    "domain": "DO_CODE"
+                }
+            },
+            "modelName": "user.userCriteria"
+        },
+        "top": "10",
+        "skip": "0",
+        "format": "json",
+        "inlinecount": "allpages",
+        "id": "6537b377-323f-1450-736c-69e9b250f2c6"
+    },
+    "73feefe6-9393-4ee8-62c6-450bca56138e": {
+        "filter": {
+            "isNewModel": "false",
+            "isCriteriaReadonly": "false",
+            "firstName": "",
+            "lastName": "",
+            "email": "",
+            "phone": "",
+            "poleCode": "",
+            "cid": "c19",
+            "metadatas": {
+                "id": {
+                    "domain": "DO_ID",
+                    "type": "text"
+                },
+                "firstName": {
+                    "domain": "DO_TEXTE_30",
+                    "required": "false"
+                },
+                "lastName": {
+                    "domain": "DO_TEXTE_30",
+                    "required": "false"
+                },
+                "dateOfArrival": {
+                    "domain": "DO_TEXTE_30",
+                    "required": "false"
+                },
+                "poleCode": {
+                    "domain": "DO_CODE"
+                }
+            },
+            "modelName": "user.userCriteria"
+        },
+        "top": "10",
+        "skip": "0",
+        "format": "json",
+        "inlinecount": "allpages",
+        "id": "73feefe6-9393-4ee8-62c6-450bca56138e"
     }
 }

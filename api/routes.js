@@ -50,9 +50,10 @@ function saveUser(request, reply) {
 }
 
 function getUserList(request, reply) {
-  reply(_.map(db.getDB(), function(value, key) {
+  var userList = _.map(db.getDB(), function(value, key) {
     return value;
-  }));
+  });
+  reply({value: userList, "odata.count": userList.length});
 }
 
 function getPoleList(request, reply) {
@@ -88,8 +89,8 @@ function getPoleList(request, reply) {
 
 
 var getUserListRoute = {
-  method: 'GET',
-  path: "/user",
+  method: 'POST',
+  path: "/user/search",
   config: {
     handler: getUserList
   }

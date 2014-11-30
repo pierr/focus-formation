@@ -1,9 +1,10 @@
-var root = require('../index').urlRoot + "/user";
+var API = require('../index').apiroot;
+var root = API + "/user";
 /**
  * Urls du module user.
  * @type {Object}
  */
 module.exports = {
-  userSearch:  root,
+  userSearch:  API + "/user/search" ,
   userDetail:  root
 };
