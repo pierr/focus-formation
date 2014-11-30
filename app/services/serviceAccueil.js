@@ -1,18 +1,14 @@
 var utilHelper = Fmk.Helpers.utilHelper;
-
+var promisify = Fmk.Helpers.promisifyHelper;
+var URL_ACCUEIL = require('../config/url/accueil');
+var URL_USER_STAT = URL_ACCUEIL.userStats;
 
 /**
  * Load the number of people in the company.
  * @return {Promise}
  */
 function loadNumberOfPeople() {
-  return utilHelper.loadLocalData({
-    name: Faker.Company.companyName(),
-    number: Faker.random.number(500),
-    bikeNumber: Faker.random.number(10),
-    carNumber: Faker.random.number(300),
-    busNumber: Faker.random.number(180)
-  });
+  return promisify.model(URL_USER_STAT).fetch();
 }
 
 

@@ -5,7 +5,8 @@ module.exports = {
   initialize: function(options, context) {
     Fmk.Helpers.referenceHelper.configure({
       "typeMessages": serviceReference.getMessageTypes,
-      "poles": serviceReference.getPolesCodes
+      "poles": serviceReference.getPolesCodes,
+      "locomotions": serviceReference.getLocomotionCodes
     });
 
   

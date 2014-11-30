@@ -24,21 +24,29 @@
         "lastName": "Besson",
         "email": "pierre.besson@kleegroup.com",
         "phone": "0661184963",
-        "poleCode": "5"
+        "poleCode": "7"
     },
     "4ed9339c-e818-a77b-d351-b7632c6e8ad0": {
+        "id": "4ed9339c-e818-a77b-d351-b7632c6e8ad0",
+        "isNewModel": false,
         "firstName": "Pierre",
         "lastName": "Besson",
         "email": "pierre.besson@kleegroup.com",
-        "id": "4ed9339c-e818-a77b-d351-b7632c6e8ad0"
+        "poleCode": "",
+        "locomotionCode": "1"
     },
     "94071f68-e7ae-13af-3ee8-33658dcf32c3": {
+        "id": "94071f68-e7ae-13af-3ee8-33658dcf32c3",
+        "isNewModel": false,
         "firstName": "Pierre",
         "lastName": "Besson",
         "email": "pierre.besson@kleegroup.com",
-        "id": "94071f68-e7ae-13af-3ee8-33658dcf32c3"
+        "poleCode": "7",
+        "locomotionCode": "1"
     },
     "58e5cee7-6440-1559-e7db-3c560f427465": {
+        "id": "58e5cee7-6440-1559-e7db-3c560f427465",
+        "isNewModel": false,
         "filter": {
             "isNewModel": "false",
             "isCriteriaReadonly": "false",
@@ -75,9 +83,14 @@
         "skip": "0",
         "format": "json",
         "inlinecount": "allpages",
-        "id": "58e5cee7-6440-1559-e7db-3c560f427465"
+        "firstName": "Philippe",
+        "lastName": "Chrétien",
+        "email": "philippe.chretien@kleegroup.com",
+        "poleCode": "7"
     },
     "6537b377-323f-1450-736c-69e9b250f2c6": {
+        "id": "6537b377-323f-1450-736c-69e9b250f2c6",
+        "isNewModel": false,
         "filter": {
             "isNewModel": "false",
             "isCriteriaReadonly": "false",
@@ -114,9 +127,14 @@
         "skip": "0",
         "format": "json",
         "inlinecount": "allpages",
-        "id": "6537b377-323f-1450-736c-69e9b250f2c6"
+        "firstName": "Nicolas",
+        "lastName": "Piedeloup",
+        "email": "nicolas.piedeloup@kleegroup.Com",
+        "poleCode": "7"
     },
     "73feefe6-9393-4ee8-62c6-450bca56138e": {
+        "id": "73feefe6-9393-4ee8-62c6-450bca56138e",
+        "isNewModel": false,
         "filter": {
             "isNewModel": "false",
             "isCriteriaReadonly": "false",
@@ -153,6 +171,35 @@
         "skip": "0",
         "format": "json",
         "inlinecount": "allpages",
-        "id": "73feefe6-9393-4ee8-62c6-450bca56138e"
+        "firstName": "François",
+        "lastName": "Constantin",
+        "email": "francois.constantin@kleegroup.com",
+        "poleCode": "7"
+    },
+    "e416af53-809c-a455-9317-06415f4b9e7c": {
+        "isNewModel": true,
+        "firstName": "Olivier",
+        "lastName": "Boitel",
+        "email": "olivier.boitel@kleegroup.com",
+        "poleCode": "7",
+        "id": "e416af53-809c-a455-9317-06415f4b9e7c"
+    },
+    "ff4f0c29-8f47-48c2-11ed-40dfa3bdc053": {
+        "isNewModel": true,
+        "firstName": "Peter",
+        "lastName": "Parker",
+        "email": "peter.parker@spiderman.com",
+        "poleCode": "1",
+        "locomotionCode": "2",
+        "id": "ff4f0c29-8f47-48c2-11ed-40dfa3bdc053"
+    },
+    "ee150602-f9a2-2573-4957-02f849fa7df5": {
+        "isNewModel": true,
+        "firstName": "Frankie",
+        "lastName": "Limont",
+        "email": "frankie.limont@kleegroup.Com",
+        "poleCode": "7",
+        "locomotionCode": "3",
+        "id": "ee150602-f9a2-2573-4957-02f849fa7df5"
     }
 }

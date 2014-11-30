@@ -1,9 +1,12 @@
 var API = require('../index').apiroot;
 var root = API + "/reference";
 /**
- * Reference module URL.
+ * URLs du  module Reference.
  * @type {Object}
  */
 module.exports = {
-  pole:  root + "/pole"
+  //Pole ws URL.
+  pole:  root + "/pole",
+  //Locomotion ws URL
+  locomotion: root + "/locomotion"
 };

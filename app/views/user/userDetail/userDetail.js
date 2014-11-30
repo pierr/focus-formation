@@ -18,7 +18,7 @@ module.exports = ConsultEditView.extend({
     isEdit: false
     //,DEBUG: true
   },
-  referenceNames:['poles'],
+  referenceNames:['poles', 'locomotions'],
   /**
    * Template de consultation de la vue.
    * @type {function}

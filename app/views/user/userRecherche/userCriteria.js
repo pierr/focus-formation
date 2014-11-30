@@ -29,5 +29,13 @@ module.exports = SearchView.extend({
    * View used in order to display the Results.
    * @type {View}
    */
-  ResultsView: UserResultView
+  ResultsView: UserResultView,
+  /**
+   * Button create handler.
+   * @return {undefined}
+   */
+  create: function(event){
+    event.preventDefault();
+    Backbone.history.navigate('user/new', true);
+  }
 });

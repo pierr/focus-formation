@@ -2824,7 +2824,7 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
             }
 
         }
-        responseErrors.statusCode = responseErrors.statusCode || response.status;
+        responseErrors.statusCode = responseErrors.status || response.status;
         if (responseErrors.statusCode) {
             treatGlobalErrors(responseErrors);
             /*Deal with all the specific exceptions*/

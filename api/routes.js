@@ -53,7 +53,37 @@ function getUserList(request, reply) {
   var userList = _.map(db.getDB(), function(value, key) {
     return value;
   });
-  reply({value: userList, "odata.count": userList.length});
+  reply({
+    value: userList,
+    "odata.count": userList.length
+  });
+}
+
+function getUserStats(request, reply) {
+  var userList = _.map(db.getDB(), function(value, key) {
+    return value;
+  });
+  reply({
+    name: "Klee",
+    number: userList.length,
+    bikeNumber: _.where(userList, {
+      locomotionCode: "1"
+    }).length,
+    carNumber: _.where(userList, {
+      locomotionCode: "3"
+    }).length,
+    busNumber: _.where(userList, {
+      locomotionCode: "2"
+    }).length,
+    footNumber: _.where(userList, {
+      locomotionCode: "0"
+    }).length + _.where(userList, {
+      locomotionCode: undefined
+    }).length,
+    motoNumber: _.where(userList, {
+      locomotionCode: "4"
+    }).length,
+  });
 }
 
 function getPoleList(request, reply) {
@@ -87,6 +117,25 @@ function getPoleList(request, reply) {
   }]);
 }
 
+function getLocomotionList(request, reply) {
+  reply([{
+    code: "0",
+    label: "foot"
+  }, {
+    code: "1",
+    label: "bike"
+  }, {
+    code: "2",
+    label: "bus"
+  }, {
+    code: "3",
+    label: "car"
+  }, {
+    code: "4",
+    label: "motocycle"
+  }]);
+}
+
 
 var getUserListRoute = {
   method: 'POST',
@@ -101,6 +150,13 @@ var getPoleReferenceListRoute = {
   path: "/reference/pole",
   config: {
     handler: getPoleList
+  }
+};
+var getLocomotionReferenceListRoute = {
+  method: 'GET',
+  path: "/reference/locomotion",
+  config: {
+    handler: getLocomotionList
   }
 };
 
@@ -127,12 +183,22 @@ var createUserRoute = {
   }
 };
 
+var getUserStatsRoute = {
+  method: 'GET',
+  path: '/accueil/userStats',
+  config: {
+    handler: getUserStats
+  }
+};
+
 module.exports = [
   createUserRoute,
   saveUserRoute,
   getUserRoute,
   getUserListRoute,
-  getPoleReferenceListRoute
+  getPoleReferenceListRoute,
+  getLocomotionReferenceListRoute,
+  getUserStatsRoute
 ];
 
 //https://github.com/simonlast/node-persist

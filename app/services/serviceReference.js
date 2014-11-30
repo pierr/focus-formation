@@ -4,7 +4,7 @@ var REF_URL = require('../config/url/reference');
 /**
  * Get the autoComplete list sample.
  * @param  {string} text - The criteria.
- * @return {[type]}      [description]
+ * @return {Promise}
  */
 function getAutocompleteSampleList(text) {
     var response = {
@@ -27,7 +27,7 @@ function getAutocompleteSampleList(text) {
 
 /**
  * Get the message type response.
- * @return {undefined}
+ * @return {Promise}
  */
 function getMessageTypes() {
     return utilHelper.loadLocalData([{
@@ -45,12 +45,29 @@ function getMessageTypes() {
     }]);
 }
 
+/**
+ * Get the pole list codes.
+ * @return {Promise}
+ */
 function getPolesCodes() {
-    return refHelper.loadList({url: REF_URL.pole});
+    return refHelper.loadList({
+        url: REF_URL.pole
+    });
+}
+
+/**
+ * Get the locomotion reference list.
+ * @return {Promise}
+ */
+function getLocomotionCodes() {
+    return refHelper.loadList({
+        url: REF_URL.locomotion
+    });
 }
 
 module.exports = {
     getAutocompleteSampleList: getAutocompleteSampleList,
     getMessageTypes: getMessageTypes,
-    getPolesCodes: getPolesCodes
+    getPolesCodes: getPolesCodes,
+    getLocomotionCodes: getLocomotionCodes
 };
