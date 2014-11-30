@@ -1,5 +1,22 @@
 var db = require('./db');
 var jsonDB = db.getDB();
+
+function getUser(request, reply){
+  var params = request.params;
+  console.log(params);
+  reply(db.getDB());
+
+}
+
+function saveUser(request, reply){
+  var payload = request.payload;
+  var jsonUser =  JSON.parse(payload);
+  jsonDB[jsonUser.id] = jsonUser;
+  db.saveDB(jsonDB);
+  reply(jsonDB);
+}
+
+
 var getUserRoute = {
   method: 'GET',
   path: '/user',
@@ -23,13 +40,7 @@ var createUserRoute = {
   }
 };
 
+module.exports = [createUserRoute, saveUserRoute, getUserRoute];
 
-function saveUser(request, reply){
-  var payload = request.payload;
-  var jsonUser =  JSON.parse(payload);
-  jsonDB[jsonUser.id] = jsonUser;
-  db.saveDB(jsonDB);
-}
 //https://github.com/simonlast/node-persist
 
-var storage = require('node-persist');

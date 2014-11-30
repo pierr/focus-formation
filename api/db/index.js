@@ -2,7 +2,7 @@
  * The fileName.
  * @type {String}
  */
-var FILE_PATH = __dirname + '\\db.json';
+var FILE_PATH = __dirname + '/db.json';
 
 /**
  * Get the database.
