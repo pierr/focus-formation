@@ -58,31 +58,31 @@ function getUserList(request, reply) {
 
 function getPoleList(request, reply) {
   reply([{
-    code: 0,
+    code: "0",
     label: "PGI"
   }, {
-    code: 1,
+    code: "1",
     label: "PGC"
   }, {
-    code: 2,
+    code: "2",
     label: "PGS"
   }, {
-    code: 3,
+    code: "3",
     label: "KI"
   }, {
-    code: 41,
+    code: "4",
     label: "Comptabilité"
   }, {
-    code: 5,
+    code: "5",
     label: "Commerce"
   }, {
-    code: 6,
+    code: "6",
     label: "Conseil"
   }, {
-    code: 7,
+    code: "7",
     label: "DT"
   }, {
-    code: 8,
+    code: "8",
     label: "Direction"
   }]);
 }
