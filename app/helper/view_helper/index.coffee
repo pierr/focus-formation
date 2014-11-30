@@ -282,7 +282,7 @@ patternButton=(pattern_text_key, pattern_options, options) ->
 # Example => button_edit class="myClass"
 # Example => button_edit text_key="myPage.myButtonName"
 Handlebars.registerHelper "button_edit",(options) ->
-  return patternButton("button.edit", {class:'btnEdit'}, options)
+  return patternButton("button.edit", {class:'btnEdit btn-primary'}, options)
 
 # Save button for detail pattern
 # Example => button_save
@@ -290,7 +290,7 @@ Handlebars.registerHelper "button_edit",(options) ->
 # Example => button_save text_key="myPage.myButtonName"
 Handlebars.registerHelper "button_save",(property, options) ->
   text = if property? and _.isString(property) and property isnt "" then property else "button.save"
-  return patternButton(text, {class:'btnSave', type:"submit"}, options)
+  return patternButton(text, {class:'btnSave btn-success', type:"submit"}, options)
 
 # Cancel button for detail pattern
 # Example => button_cancel
@@ -648,9 +648,9 @@ Handlebars.registerHelper 'page', (title, options)->
   opt = options.hash or {}
   console.error("noTitleInYourTemplate")if not _.isString(title)
   html = "
-      <h1>#{i18n.t(title)}</h1>
-      <div class='page-content'>
-        #{options.fn(@)}
+      <div class='page-content well animated fadeIn'>
+         <h2>#{i18n.t(title)}</h2>
+         #{options.fn(@)}
       </div>
   "
   return html

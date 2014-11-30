@@ -1,12 +1,12 @@
-<div class="well animated fadeIn">
-  <h2>Consultation du contact {{id}}</h2>
+{{#page "user.detail.title"}}
   {{#form}}
     {{input_for "firstName"}}
     {{input_for "lastName"}}
     {{input_for "email"}}
     {{input_for "phone"}}
     {{options_selected "poleCode" listKey='poles'}}
-    {{button_save}}
+    {{!-- Action button of the page--}}
     {{button_cancel}}
+    {{button_save}}
   {{/form}}
-</div>
+{{/page}}

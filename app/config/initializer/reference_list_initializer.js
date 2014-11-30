@@ -3,6 +3,11 @@ var serviceReference = require('../../services/serviceReference');
 
 module.exports = {
   initialize: function(options, context) {
-    Fmk.Helpers.referenceHelper.configure({"typeMessages": serviceReference.getMessageTypes});
+    Fmk.Helpers.referenceHelper.configure({
+      "typeMessages": serviceReference.getMessageTypes,
+      "poles": serviceReference.getPolesCodes
+    });
+
+  
   }
 };

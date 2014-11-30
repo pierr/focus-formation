@@ -1,16 +1,20 @@
 module.exports = {
-  "userCriteria":{
+  "userCriteria": {
     firstName: "Prénom",
     lastName: "Nom",
     email: "Email",
     phone: "Tél",
     poleCode: "Pôle"
   },
-  "user":{
+  "user": {
     firstName: "Prénom",
     lastName: "Nom",
     email: "Email",
     phone: "Tél",
     poleCode: "Pôle"
+  },
+  detail: {
+    title: "Page de detail de l'utilisateur : "
   }
+
 };

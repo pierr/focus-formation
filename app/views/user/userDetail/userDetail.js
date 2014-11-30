@@ -15,10 +15,10 @@ module.exports = ConsultEditView.extend({
     isSaveOnServer: true,
     isNavigationOnSave: false,
     isEditMode: true,
-    isEdit: false,
-    DEBUG: true
+    isEdit: false
+    //,DEBUG: true
   },
-  //referenceNames:['pole'],
+  referenceNames:['poles'],
   /**
    * Template de consultation de la vue.
    * @type {function}

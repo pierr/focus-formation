@@ -1,5 +1,4 @@
-<div class="well animated fadeIn">
-  <h2>Consultation du contect {{id}}</h2>
+{{#page "user.detail.title"}}
   {{#display}}
     {{display_for "firstName"}}
     {{display_for "lastName"}}
@@ -8,4 +7,4 @@
     {{display_for "poleCode" listKey='poles'}}
     {{button_edit}}
   {{/display}}
-</div>
+{{/page}}
