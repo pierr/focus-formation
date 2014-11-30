@@ -1,5 +1,5 @@
-var db = require('./db');
-var jsonDB = db.getDB();
+var dbUser = require('./db').user;
+var dbMessage = require('./db').message;
 var guid = require('./util/guid');
 var _ = require('underscore');
 
@@ -14,8 +14,8 @@ function Invalid(reply) {
 function getUser(request, reply) {
   //console.log(request);
   var params = request.params;
-  //console.log(params.id, db.getDB()[params.id]);
-  var user = db.getDB()[params.id];
+  //console.log(params.id, dbUser.getDB()[params.id]);
+  var user = dbUser.getDB()[params.id];
   if (!user) {
     NotFound(reply);
   } else {
@@ -26,7 +26,7 @@ function getUser(request, reply) {
 
 function saveUser(request, reply) {
   var params = request.params;
-  var jsonDB = db.getDB();
+  var jsonDB = dbUser.getDB();
   var user;
   var jsonUser = request.payload;
   if (params.id) {
@@ -45,12 +45,12 @@ function saveUser(request, reply) {
 
   }
   jsonDB[jsonUser.id] = jsonUser;
-  db.saveDB(jsonDB);
+  dbUser.saveDB(jsonDB);
   reply(jsonUser);
 }
 
 function getUserList(request, reply) {
-  var userList = _.map(db.getDB(), function(value, key) {
+  var userList = _.map(dbUser.getDB(), function(value, key) {
     return value;
   });
   reply({
@@ -60,7 +60,7 @@ function getUserList(request, reply) {
 }
 
 function getUserStats(request, reply) {
-  var userList = _.map(db.getDB(), function(value, key) {
+  var userList = _.map(dbUser.getDB(), function(value, key) {
     return value;
   });
   reply({

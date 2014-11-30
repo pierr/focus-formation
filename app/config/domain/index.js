@@ -6,35 +6,48 @@ module.exports = {
         "type": "text",
         "decorator": "datePicker",
         "style": "date right",
-        "format": {value:Fmk.Helpers.formaters.date}
+        "format": {
+            value: Fmk.Helpers.formaters.date
+        }
     },
     "DO_DATE_HEURE": {
         "type": "text",
         "decorator": "datePicker",
         "style": "date right",
-        "format": {value: Fmk.Helpers.formaters.dateTime}
+        "format": {
+            value: Fmk.Helpers.formaters.dateTime
+        }
     },
     "DO_MONTANT": {
         "type": "number",
-        "validation":{
+        "validation": {
             "type": "number",
-            "options":{"min": 0}
+            "options": {
+                "min": 0
+            }
         },
         "symbol": "\u20AC", // \u20AC = €
-        "format": {value: Fmk.Helpers.formaters.currency}
+        "format": {
+            value: Fmk.Helpers.formaters.currency
+        }
     },
     "DO_EMAIL": {
         "type": "email",
         "validation": [{
             "type": "email"
-        }]
+        }],
+        "symbol": "@"
+    },
+    "DO_PHONE": {
+        "type": "phone",
+        "symbol": "("
     },
     "DO_ENTIER": {
-		"type": "number",
-		"validation": [{
-			"type": "number"
-		}]
-	},
+        "type": "number",
+        "validation": [{
+            "type": "number"
+        }]
+    },
     "DO_ID": {
         "type": "text"
     },
@@ -42,14 +55,14 @@ module.exports = {
         "type": "text",
         "decorator": "select2"
     },
-	"DO_TEXTE_50": {
-	    "type": "text",
-	    "validation": [{
-	        "type": "string",
-	        "options": {
-	            "maxLength": 50
-	        }
-	    }],
-	    "style": "texte_50"
-	}
+    "DO_TEXTE_50": {
+        "type": "text",
+        "validation": [{
+            "type": "string",
+            "options": {
+                "maxLength": 50
+            }
+        }],
+        "style": "texte_50"
+    }
 };

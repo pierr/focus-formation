@@ -1,12 +1,14 @@
 {
     "2": {
         "id": "2",
+        "isNewModel": false,
         "firstName": "Jordane",
         "lastName": "Kuvalis",
         "email": "Janelle.Kovacek@claudine.biz",
         "phone": "(808)938-0085 x8103",
         "dateOfArrival": "2014-11-30T10:41:09.786Z",
-        "poleCode": 1
+        "poleCode": "1",
+        "locomotionCode": "4"
     },
     "79b8d4ff-610e-c29d-a829-ad288573f90d": {
         "id": "79b8d4ff-610e-c29d-a829-ad288573f90d",

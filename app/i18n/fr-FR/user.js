@@ -11,7 +11,8 @@ module.exports = {
     lastName: "Nom",
     email: "Email",
     phone: "Tél",
-    poleCode: "Pôle"
+    poleCode: "Pôle",
+    locomotionCode:"Moyen de locomotion"
   },
   detail: {
     title: "Page de detail de l'utilisateur : "

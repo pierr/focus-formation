@@ -17,6 +17,12 @@ module.exports = {
     },
     "poleCode": {
       domain: "DO_CODE"
+    },
+    "email": {
+      domain: "DO_EMAIL"
+    },
+    "phone": {
+      domain: "DO_PHONE"
     }
   },userCriteria: {
     "id": {

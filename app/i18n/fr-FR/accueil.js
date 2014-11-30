@@ -8,5 +8,6 @@ module.exports = {
     busNumber: " bus",
     "business": "Les chiffres clefs",
     "projects": "Les projets",
+    motoNumber: " motos"
   }
 };
