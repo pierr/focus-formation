@@ -13,7 +13,8 @@ module.exports = Router.extend({
    */
   routes: {
     'user': 'userSearchRoute',
-    'user/:userId': 'userDetailRoute'
+    'user/:userId': 'userDetailRoute',
+    'userComplete/:userId': 'userCompleteRoute'
   },
   /**
    * Traitement de la route de recherche d'un utilisateur.
@@ -38,6 +39,15 @@ module.exports = Router.extend({
     application.layout.setActiveMenu('user');
     application.layout.content.show(new UserDetailView({
       model: new UserModel({
+        id: userId
+      })
+    }));
+  },
+    userCompleteRoute: function userCompleteRoute(userId) {
+    var UserDetailCompleteView = require('../views/user/userDetailComplete/userDetailComposite');
+    application.layout.setActiveMenu('user');
+    application.layout.content.show(new UserDetailCompleteView({
+      model: new Backbone.Model({
         id: userId
       })
     }));

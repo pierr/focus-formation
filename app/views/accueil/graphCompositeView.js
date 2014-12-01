@@ -2,15 +2,8 @@
 //Dependencies
 var template = require('./templates/graphComposite');
 
-/// Create and Require the child views and their corresponding models with the following pattern:
-//var GraphConsultEditView = require('./graphConsultEditView');
-//var Graph = require('../../models/accueil/graph');
-
-/// Create and Require the service if needed.
-//var Service = require('../../services/accueil/serviceGraph');
-
 /**
- * [__TO_FILL__]
+ * Composite view for the home page.
  * @type {CompositeView} - see lib/views/composite-edit-view.js in fmk.
  * @property {template} template - The template of the composite, must contains container for rendering subviews.
  * @property {modelName} - The metadatas of the model which will be automatically created for the composite.

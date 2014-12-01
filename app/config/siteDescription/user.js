@@ -12,6 +12,11 @@ module.exports = function(p) {
       name: "detail",
       url: '#user/:userId',
       roles: ['DEFAULT_ROLE']
-    }]
+    },{
+      name: "detailComplexe",
+      url: '#userComplete/:userId',
+      roles: ['DEFAULT_ROLE']
+    }
+    ]
   };
 };

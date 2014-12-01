@@ -1,45 +1,43 @@
 //Dependencies
-var template = require('./templates/homeComposite');
+var template = require('./templates/userComposite');
 var CompositeView = Fmk.Views.CompositeView;
 module.exports = CompositeView.extend({
     template: template,
    // className: "animate bounceIn",
-    initialize: function initializeGraphCompositeView(options) {
+    initialize: function initializeUserDetailComplexe(options) {
         options = options || {};
         options.modelName = this.modelName;
         // Call the parent's initialize.
         CompositeView.prototype.initialize.call(this, options);
 
         //Initialize all the childViews
-        this.registerNumberPeopleIndcator();
-        this.registerProjectIndcator();
-        this.registerNews();
-        this.registerArrivalContainer();
+        this.registerUserDetailView();
+       // this.registerMessageListView();
     },
     /**
-     * Register the subView of number of people.
+     * Register the subView of userDetail.
      * @return {undefined}
      */
-    registerNumberPeopleIndcator: function registerNumberPeopleIndcator() {
-        var NumberPeopleDetail = require('./numberPeopleDetail');
-        var NumberPeopleModel = require('../../../models/accueil/home/numberPeopleModel');
+    registerUserDetailView: function registerUserDetailView() {
+        var UserDetail = require('./userDetail');
+        var UserDetailModel = require('../../../models/user/userDetail/UserModel');
         //Enregistrement dans la vue en tant que propriété.
-        this.numberPeopleDetail = new NumberPeopleDetail({
-            model: new NumberPeopleModel()
+        this.userDetail = new UserDetail({
+            model: new UserDetailModel()
         });
         //Enregistremen de la vue dans le container global.
         this.registerView({
-            selector: "div#numberPeopleIndcatorContainer",
-            name: "numberPeopleDetail",
+            selector: "div#userDetailContainer",
+            name: "userDetail",
             type: "model",
-            modelProperty: "numberPeopleIndcator"
+            modelProperty: "user"
         });
     },
     /**
-     * Register the subView of number of people.
+     * Register the subView of list of messages.
      * @return {undefined}
      */
-    registerProjectIndcator: function registerProjectIndcator() {
+ /*   registerMessageListView: function registerMessageListView() {
         var NumberProjectDetail = require('./numberProjectDetail');
         var NumberProjectModel = require('../../../models/accueil/home/numberProjectModel');
         //Enregistrement dans la vue en tant que propriété.
@@ -48,12 +46,12 @@ module.exports = CompositeView.extend({
         });
         //Enregistremen de la vue dans le container global.
         this.registerView({
-            selector: "div#numberProjectIndcatorContainer",
-            name: "numberProjectDetail",
-            type: "model",
-            modelProperty: "numberProject"
+            selector: "div#messageListContainer",
+            name: "messageList",
+            type: "collection",
+            modelProperty: "messageList"
         });
-    },
+    },*/
     /**
      * Register the news view.
      * @return {undefined}
