@@ -29,6 +29,7 @@ function saveUser(request, reply) {
   var jsonDB = dbUser.getDB();
   var user;
   var jsonUser = request.payload;
+  jsonUser.imagePath = require('./tmp/imageCircle');
   if (params.id) {
     user = jsonDB[params.id];
     if (!user) {
