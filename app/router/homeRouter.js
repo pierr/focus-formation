@@ -1,13 +1,16 @@
 var application = require('../application');
+var NotImplementedException = Fmk.Helpers.Exceptions.NotImplementedException;
+
 module.exports = Fmk.Helpers.Router.extend({
   routes: {
     '': 'home',
     'home': 'home'
   },
-  home: function() {
-    var HomeView = require('../views/accueil/home/homeComposite');
-    var HomeModel = Backbone.Model.extend({modelName: "accueil.home"});
-    application.layout.setActiveMenu('home');
-    application.layout.content.show(new HomeView({model: new HomeModel()}));
+  /**
+   * Route à implémenter pour la page d'accueil.
+   * @return {undefined}
+   */
+  home: function homeRoute() {
+     throw new NotImplementedException("Home Router, the route should be implemented.");
   }
 });
