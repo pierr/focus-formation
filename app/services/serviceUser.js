@@ -4,6 +4,7 @@ var promisify = Fmk.Helpers.promisifyHelper;
 var URL_USER = require('../config/url/user');
 var URL_USER_DETAIL = URL_USER.userDetail;
 var URL_USER_SEARCH = URL_USER.userSearch;
+var NotImplementedException = Fmk.Helpers.Exceptions.NotImplementedException;
 function _getPromiseUser(json) {
   return promisify.model(URL_USER_DETAIL, json);
 }
@@ -42,24 +43,7 @@ function saveUser(jsonUser) {
  * @return {Promise} - The promise of loading all the users.
  */
 function loadUserListByCriteria(userCriteria, pagesInfos) {
-  if (!_.isObject(userCriteria)) {
-    throw new ArgumentInvalidException('userCriteria should be an object');
-  }
-  if (!_.isObject(pagesInfos)) {
-    throw new ArgumentInvalidException('pageInfos should be an object');
-  }
-  return promisify.collection(URL_USER_SEARCH).fetchData({
-    criteria: userCriteria,
-    pagesInfos: pagesInfos
-  });
-  // var users = [];
-  // [0, 1, 2, 3, 4, 5, 6, 7].forEach(function(id) {
-  //   users.push(_getUser(id));
-  // });
-  // return utilHelper.loadLocalData({
-  //   values: users,
-  //   totalRecords: 8
-  // });
+    throw new NotImplementedException( 'The service loadUserListByCriteria is not implemented.');
 }
 
 module.exports = {
