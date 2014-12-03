@@ -1,7 +1,7 @@
 //Dependances.
 var Router = Fmk.Helpers.Router;
 var application = require('../application');
-
+var NotImplementedException = Fmk.Helpers.Exceptions.NotImplementedException;
 /**
  * Router gêrant le module user.
  * @module  'app/router/user'
@@ -21,12 +21,7 @@ module.exports = Router.extend({
    * @return {[type]} [description]
    */
   userSearchRoute: function userSearchRoute() {
-    var UserCriteria = require('../models/user/userRecherche/userCriteria');
-    var UserCriteriaView = require('../views/user/userRecherche/userCriteria');
-    application.layout.setActiveMenu('user');
-    application.layout.content.show(new UserCriteriaView({
-      model: new UserCriteria()
-    }));
+    throw new NotImplementedException('UserSearch route should be implemented.');
   },
   /**
    * Traitement de la route detail d'un utilisateur.

@@ -11,6 +11,8 @@ module.exports = Fmk.Helpers.Router.extend({
    * @return {undefined}
    */
   home: function homeRoute() {
-     throw new NotImplementedException("Home Router, the route should be implemented.");
+    var HomeView = require('views/home-view');
+    application.layout.setActiveMenu('home');
+    application.layout.content.show(new HomeView());
   }
 });
