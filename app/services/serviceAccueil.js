@@ -1,4 +1,6 @@
 var utilHelper = Fmk.Helpers.utilHelper;
+var NotImplementedException = Fmk.Helpers.Exceptions.NotImplementedException;
+
 var promisify = Fmk.Helpers.promisifyHelper;
 var URL_ACCUEIL = require('../config/url/accueil');
 var URL_USER_STAT = URL_ACCUEIL.userStats;
@@ -8,15 +10,19 @@ var URL_USER_STAT = URL_ACCUEIL.userStats;
  * @return {Promise}
  */
 function loadNumberOfPeople() {
-  return promisify.model(URL_USER_STAT).fetch();
+  throw new NotImplementedException('loadNumberOfPeople service is not implemented');
 }
 
-
+/**
+ * Load the number of projects.
+ * @return {Promise}
+ */
 function loadNumberOfProjects() {
-  return utilHelper.loadLocalData({
+  throw new NotImplementedException('loadNumberOfPeople service is not implemented');
+  /*return utilHelper.loadLocalData({
     name: Faker.Company.companyName(),
     number: Faker.random.number(2500)
-  });
+  });*/
 }
 module.exports = {
   loadNumberOfPeople: loadNumberOfPeople,
