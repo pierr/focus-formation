@@ -1,9 +1,10 @@
+/*global _, Fmk, require, module*/
 var utilHelper = Fmk.Helpers.utilHelper;
 var ArgumentInvalidException = Fmk.Helpers.Exceptions.ArgumentInvalidException;
 var promisify = Fmk.Helpers.promisifyHelper;
 var URL_USER = require('../config/url/user');
 var URL_USER_DETAIL = URL_USER.userDetail;
-var URL_USER_SEARCH = URL_USER.userSearch;
+var URL_USER_SEARCH = /*"http://npiedeloup1:8088/test/searchAutoPagined"; */URL_USER.userSearch;
 function _getPromiseUser(json) {
   return promisify.model(URL_USER_DETAIL, json);
 }
@@ -48,8 +49,13 @@ function loadUserListByCriteria(userCriteria, pagesInfos) {
   if (!_.isObject(pagesInfos)) {
     throw new ArgumentInvalidException('pageInfos should be an object');
   }
-  return promisify.collection(URL_USER_SEARCH).fetchData({
-    criteria: userCriteria,
+  return promisify.collection(URL_USER_SEARCH).search({
+    criteria: {
+      "birthdayMax": "2014-12-23T12:36:42.440Z",
+      "birthdayMin": "2014-12-23T12:36:42.440Z",
+      "firstName": "string",
+      "name": "string"
+    },
     pagesInfos: pagesInfos
   });
   // var users = [];

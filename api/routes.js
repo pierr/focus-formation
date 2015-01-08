@@ -54,10 +54,10 @@ function getUserList(request, reply) {
   var userList = _.map(dbUser.getDB(), function(value, key) {
     return value;
   });
-  reply({
-    value: userList,
-    "odata.count": userList.length
-  });
+  reply(userList).header("X-Total-Count", userList.length)
+                 .header("content-type", "application/json; charset=utf-8;json+list")
+    .header('Access-Control-Expose-Headers', "X-Total-Count");
+
 }
 
 function getUserStats(request, reply) {
@@ -83,7 +83,7 @@ function getUserStats(request, reply) {
     }).length,
     motoNumber: _.where(userList, {
       locomotionCode: "4"
-    }).length,
+    }).length
   });
 }
 

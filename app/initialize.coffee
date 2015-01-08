@@ -1,3 +1,5 @@
+window.Fmk = window.Focus;
+Focus.registerTemplateHelpers(Handlebars);
 application = require 'application'
 
 $ ->
