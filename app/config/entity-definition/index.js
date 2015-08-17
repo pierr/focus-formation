@@ -15,6 +15,9 @@ module.exports = {
         },
         job: {
             domain: 'DO_TEXT'
+        },
+        avatar: {
+            domain: 'DO_TEXT'
         }
     },
     contactAddress: {
