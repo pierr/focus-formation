@@ -56,8 +56,8 @@ module.exports = {
      * @type {Object}
      */
     contactInformations: {
-            firstName: 'Nom',
-            lastName: 'Prénom',
+            firstName: 'Prénom',
+            lastName: 'Nom',
             bio: 'Bio',
             job: 'Travail'
     },
