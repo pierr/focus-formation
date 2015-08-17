@@ -1,4 +1,4 @@
-const NB_CONTACT = 3000;
+const NB_CONTACT = 50;
 const NB_FRIENDS = 30;
 let contacts = {};
 let {name, image, phone, lorem, address} = faker;
@@ -22,7 +22,8 @@ for(let i=0 ; i < NB_CONTACT ; i++ ){
                 firstName: firstName(),
                 lastName: lastName(),
                 bio: lorem.paragraph(),
-                job: jobTitle()
+                job: jobTitle(),
+                avatar: avatar()
             },
             address: {
                 line1: streetAddress(),
