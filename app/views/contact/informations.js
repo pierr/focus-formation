@@ -11,8 +11,8 @@ let InformationComponent = React.createClass({
     renderContent(){
         return (
             <Block actions={this._renderActions} title='contact.informations.title'>
-                {this.fieldFor('firstName')}
                 {this.fieldFor('lastName')}
+                {this.fieldFor('firstName')}
                 {this.fieldFor('bio')}
                 {this.fieldFor('job')}
             </Block>
