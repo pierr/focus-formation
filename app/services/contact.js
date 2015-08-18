@@ -1,11 +1,12 @@
 const NB_CONTACT = 50;
 const NB_FRIENDS = 30;
 let contacts = {};
-let {name, image, phone, lorem, address} = faker;
+let {name, image, phone, lorem, address, random} = faker;
 let {firstName, lastName, jobTitle} = name;
 let {streetAddress, zipCode, city, country, latitude, longitude} = address;
 let {phoneNumber} = phone;
 let {avatar} = image;
+let bool = random.boolean;
 
 for(let i=0 ; i < NB_CONTACT ; i++ ){
     let friends = [];
@@ -18,12 +19,14 @@ for(let i=0 ; i < NB_CONTACT ; i++ ){
     }
     contacts[i] = {
             informations: {
+                civiliteCode: 0.5 > Math.random() ? 'MRS' : 'MR',
                 id: i,
                 firstName: firstName(),
                 lastName: lastName(),
                 bio: lorem.paragraph(),
                 job: jobTitle(),
-                avatar: avatar()
+                avatar: avatar(),
+                score: random.number(10)
             },
             address: {
                 line1: streetAddress(),
@@ -34,7 +37,13 @@ for(let i=0 ; i < NB_CONTACT ; i++ ){
                 latitude: latitude(),
                 longitude: longitude()
             },
-            friends
+            friends,
+            preferences: {
+                isMailOk: bool(),
+                isPhoneOk: bool(),
+                isEmailOk: bool(),
+                isMassMail: bool()
+            }
     };
 }
 

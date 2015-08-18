@@ -4,6 +4,9 @@
  */
 module.exports = {
     contactInformations: {
+        civiliteCode: {
+            domain: 'DO_CODE'
+        },
         firstName: {
             domain: 'DO_TEXT'
         },

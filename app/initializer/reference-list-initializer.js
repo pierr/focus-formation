@@ -4,6 +4,6 @@ let reference = Focus.reference;
 
 module.exports = {
     initialize() {
-        reference.config.set({scopes: referenceService.getScopes});
+        reference.config.set({scopes: referenceService.getScopes, civilities: referenceService.getCivility});
     }
 };
