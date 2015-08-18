@@ -1,7 +1,7 @@
 const NB_CONTACT = 50;
 const NB_FRIENDS = 30;
 let contacts = {};
-let {name, image, phone, lorem, address, random} = faker;
+let {name, image, phone, lorem, address, random} = window.faker;
 let {firstName, lastName, jobTitle} = name;
 let {streetAddress, zipCode, city, country, latitude, longitude} = address;
 let {phoneNumber} = phone;
@@ -138,5 +138,5 @@ module.exports = {
                 resolve(data.val());
             });
         });
-    },
+    }
 };
