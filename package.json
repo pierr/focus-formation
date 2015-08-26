@@ -29,8 +29,9 @@
         "eslint-plugin-filenames": "0.1.1",
         "eslint-plugin-react": "2.7.1",
         "eslint-plugin-require-jsdoc": "1.0.4",
-        "focusjs": "^0.8.3",
-        "focusjs-components": "^0.4.3",
+        "eslint-plugin-require-jsdoc-focus": "0.1.0",
+        "focusjs": "^0.8.4-0",
+        "focusjs-components": "^0.4.7-1",
         "font-awesome": "^4.3.0",
         "immutable": "^3.7.2",
         "jquery": "^2.1.4",
@@ -39,8 +40,7 @@
         "native-promise-only": "^0.8.0-a",
         "numeral": "^1.5.3",
         "react": "^0.13.1",
-        "showdown": "^1.0.2",
-        "eslint-plugin-require-jsdoc-focus": "0.1.0"
+        "showdown": "^1.0.2"
     },
     "main": "app/index.js",
     "directories": {
